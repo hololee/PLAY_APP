@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="374dp"
+        android:layout_height="248dp"
+        android:layout_centerInParent="true"
+        android:text="결과"
+        android:textColor="#FFFFFF"
+        android:textSize="80sp"
+        android:gravity="center"
+        android:background="@drawable/colors"
+        />
+
+    <ImageButton
+        android:id="@+id/close"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignTop="@id/result"
+        android:layout_marginTop="15dp"
+        android:layout_alignRight="@id/result"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="438dp"
+        android:background="#00ff0000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/close_white" />
+    <ImageButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/share"
+        android:src="@drawable/share_white"
+        android:layout_alignBottom="@id/result"
+        android:layout_marginBottom="18dp"
+        android:layout_alignRight="@id/result"
+        android:layout_marginRight="30dp"
+        android:scaleType="fitCenter"
+        android:background="#00ff0000"
+        />
+
+</RelativeLayout>
