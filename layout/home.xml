@@ -21,7 +21,7 @@
 
     <TextView
         android:layout_marginTop="50dp"
-        android:id="@+id/editText"
+        android:id="@+id/TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -71,7 +71,7 @@
         android:layout_marginTop="10dp">
 
         <RadioButton
-            android:id="@+id/radioButton4"
+            android:id="@+id/free"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="무료 "
@@ -80,7 +80,7 @@
             tools:layout_editor_absoluteY="632dp" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/pay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="유료 "
@@ -89,7 +89,7 @@
             tools:layout_editor_absoluteY="632dp" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/outdoor2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="실외 "
@@ -98,7 +98,7 @@
             tools:layout_editor_absoluteY="632dp" />
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/indoor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="실내 "
@@ -109,7 +109,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/coala_logo"
+        android:id="@+id/coala"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
