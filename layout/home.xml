@@ -1,96 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/ic_launcher_background">
+    android:background="@drawable/background_color"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:adjustViewBounds="true"
+        android:background="#00000000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/setting"
+        tools:layout_editor_absoluteX="280dp"
+        tools:layout_editor_absoluteY="-50dp" />
+
+    <TextView
+        android:layout_marginTop="50dp"
         android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:hint="뭐하고 놀지?"
+        android:text="뭐하고 놀지?"
         android:paddingStart="10dp"
         android:paddingTop="10dp"
-        android:textColor="#FFFEFE"
-        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
         android:textSize="38sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="150dp" />
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <RadioButton
-        android:id="@+id/radioButton4"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="318dp"
+            android:src="@drawable/roulette"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"/>
+
+        <ImageView
+            android:layout_width="79dp"
+            android:layout_height="135dp"
+            android:src="@drawable/tip"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="무료"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="316dp"
-        tools:layout_editor_absoluteY="632dp" />
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp">
 
-    <RadioButton
-        android:id="@+id/radioButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="유료"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="219dp"
-        tools:layout_editor_absoluteY="632dp" />
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="무료 "
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="316dp"
+            tools:layout_editor_absoluteY="632dp" />
 
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="실외"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="119dp"
-        tools:layout_editor_absoluteY="632dp" />
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="유료 "
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="219dp"
+            tools:layout_editor_absoluteY="632dp" />
 
-    <RadioButton
-        android:id="@+id/radioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="실내"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="632dp" />
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="실외 "
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="119dp"
+            tools:layout_editor_absoluteY="632dp" />
 
-    <ImageView
-        android:id="@+id/roulette"
-        android:layout_width="331dp"
-        android:layout_height="326dp"
-        android:gravity="center_horizontal"
-        android:src="@drawable/rl"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="253dp" />
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="실내 "
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="15dp"
+            tools:layout_editor_absoluteY="632dp" />
 
-    <ImageView
-        android:id="@+id/tip"
-        android:layout_width="135dp"
-        android:layout_height="120dp"
-        android:src="@drawable/YY"
-        tools:layout_editor_absoluteX="138dp"
-        tools:layout_editor_absoluteY="224dp" />
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/coala_logo"
         android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:src="@drawable/coala_logo"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/coala"
         tools:layout_editor_absoluteX="180dp"
         tools:layout_editor_absoluteY="675dp" />
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:layout_width="160dp"
-        android:layout_height="210dp"
-        android:adjustViewBounds="true"
-        android:background="#00ff0000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/setting_1"
-        tools:layout_editor_absoluteX="280dp"
-        tools:layout_editor_absoluteY="-50dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
