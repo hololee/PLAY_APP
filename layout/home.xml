@@ -17,10 +17,11 @@
         android:paddingTop="10dp"
         android:textColor="#FFFEFE"
         android:textColorHint="#FFFFFF"
-        android:textSize="45sp"
+        android:textSize="38sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="192dp" />
+        tools:layout_editor_absoluteY="150dp" />
+
 
     <RadioButton
         android:id="@+id/radioButton4"
@@ -28,26 +29,8 @@
         android:layout_height="wrap_content"
         android:text="무료"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="387dp"
-        tools:layout_editor_absoluteY="833dp" />
-
-    <RadioButton
-        android:id="@+id/radioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="실내"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="833dp" />
-
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="실외"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="833dp" />
+        tools:layout_editor_absoluteX="316dp"
+        tools:layout_editor_absoluteY="632dp" />
 
     <RadioButton
         android:id="@+id/radioButton3"
@@ -55,25 +38,51 @@
         android:layout_height="wrap_content"
         android:text="유료"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="273dp"
-        tools:layout_editor_absoluteY="833dp" />
+        tools:layout_editor_absoluteX="219dp"
+        tools:layout_editor_absoluteY="632dp" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="실외"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="119dp"
+        tools:layout_editor_absoluteY="632dp" />
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="실내"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="632dp" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="430dp"
-        android:layout_height="430dp"
+        android:id="@+id/roulette"
+        android:layout_width="331dp"
+        android:layout_height="326dp"
+        android:gravity="center_horizontal"
         android:src="@drawable/rl"
         tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="323dp" />
-
+        tools:layout_editor_absoluteY="253dp" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/tip"
         android:layout_width="135dp"
         android:layout_height="120dp"
         android:src="@drawable/YY"
-        tools:layout_editor_absoluteX="190dp"
-        tools:layout_editor_absoluteY="283dp" />
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="224dp" />
+
+    <ImageView
+        android:id="@+id/coala_logo"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:src="@drawable/coala_logo"
+        tools:layout_editor_absoluteX="180dp"
+        tools:layout_editor_absoluteY="675dp" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:layout_width="160dp"
@@ -82,6 +91,6 @@
         android:background="#00ff0000"
         android:scaleType="fitCenter"
         android:src="@drawable/setting_1"
-        tools:layout_editor_absoluteX="361dp"
-        tools:layout_editor_absoluteY="-43dp" />
+        tools:layout_editor_absoluteX="280dp"
+        tools:layout_editor_absoluteY="-50dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
