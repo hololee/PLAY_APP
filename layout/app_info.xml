@@ -24,6 +24,7 @@
         android:scaleType="fitCenter"
         android:src="@drawable/back_arrow" />
     <TextView
+        android:id="@+id/appinfo_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/top_tap"
@@ -40,8 +41,7 @@
         android:adjustViewBounds="true"
         android:layout_margin="15dp"
         android:scaleType="fitCenter"
-
-
+        android:id="@+id/coala"
         android:src="@drawable/coala" />
 
 
