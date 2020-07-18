@@ -38,6 +38,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="110dp"
+            android:height="85dp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="170dp"
+            android:background="#00ff0000"
+            >
+        </Button>
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="318dp"
@@ -57,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="0dp">
 
         <RadioButton
             android:id="@+id/radioButton4"
