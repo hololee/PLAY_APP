@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_color"
+    tools:context=".SettingsActivity">
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:adjustViewBounds="true"
+        android:background="#00ff0000"
+        android:scaleType="fitCenter"
+        android:layout_margin="10dp"
+        android:src="@drawable/back_arrow" />
+
+    <TextView
+        android:id="@+id/settings"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/borderline_bottom"
+        android:gravity="center"
+        android:text="설정"
+        android:textColor="#000000"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/sound"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/settings"
+        android:gravity="center_vertical"
+        android:scaleType="fitEnd"
+        android:text="  소리"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:background="@drawable/border_line"
+        />
+
+
+    <ImageButton
+        android:id="@+id/app_info_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@id/app_info"
+        android:layout_marginLeft="10dp"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignRight="@id/app_info"
+        android:adjustViewBounds="true"
+        android:background="#00ff0000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/next_arrow"
+        />
+
+    <TextView
+        android:id="@+id/app_info"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/sound"
+        android:layout_marginTop="0dp"
+        android:gravity="center_vertical"
+        android:text="  앱 정보"
+        android:textColor="#000000"
+        android:background="@drawable/border_line"
+        android:textSize="30sp" />
+
+    <Switch
+        android:id="@+id/switch_sound"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignRight="@id/sound"
+        android:layout_alignBottom="@id/sound"
+        android:switchMinWidth="60dp"
+        />
+
+</RelativeLayout>

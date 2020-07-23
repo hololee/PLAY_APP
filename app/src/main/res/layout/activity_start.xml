@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_color"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".StartActivity">
 
     <ImageView
 
@@ -30,5 +30,6 @@
         android:textStyle="bold"
         tools:layout_editor_absoluteX="72dp"
         tools:layout_editor_absoluteY="415dp" />
+
 
 </LinearLayout>
