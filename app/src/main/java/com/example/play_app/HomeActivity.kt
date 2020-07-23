@@ -10,13 +10,13 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_home.*
 
-class home : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
         setting.setOnClickListener {
-            val intent = Intent(this,settings::class.java)
+            val intent = Intent(this,SettingsActivity::class.java)
             startActivity(intent)
             finish()
         }
