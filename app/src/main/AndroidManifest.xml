@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".play_list"></activity>
+        <activity android:name=".PlayListActivity"></activity>
         <activity android:name=".SettingsActivity" />
         <activity android:name=".AppInfoActivity" />
         <activity android:name=".HomeActivity" />
