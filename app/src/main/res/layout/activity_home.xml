@@ -66,60 +66,16 @@
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton
+        android:id="@+id/filter_button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp">
-
-        <RadioButton
-            android:id="@+id/free"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="무료 "
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="316dp"
-            tools:layout_editor_absoluteY="632dp" />
-
-        <RadioButton
-            android:id="@+id/pay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="유료 "
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="219dp"
-            tools:layout_editor_absoluteY="632dp" />
-
-        <RadioButton
-            android:id="@+id/outdoor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="실외 "
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="119dp"
-            tools:layout_editor_absoluteY="632dp" />
-
-        <RadioButton
-            android:id="@+id/indoor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="실내 "
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="15dp"
-            tools:layout_editor_absoluteY="632dp" />
-
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/coala"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/coala"
-        tools:layout_editor_absoluteX="180dp"
-        tools:layout_editor_absoluteY="675dp" />
-
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="true"
+        android:background="#00000000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/filter" />
 
 
 </LinearLayout>
