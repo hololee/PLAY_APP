@@ -19,7 +19,6 @@ class PlayListActivity : AppCompatActivity() {
         {
             textView.text="${play_list[item]}"
             textView.id="@+id/list_$item"
-
         }
 
     }
