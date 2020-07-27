@@ -11,10 +11,9 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        val backButton = findViewById<ImageButton>(R.id.back_button)
-        // 빨간줄 뜨면 alt + enter 눌러서 import 시키면 됩니다. : import error 의 경우.
-
+        val backButton = findViewById<ImageButton>(R.id.settings_back_button)
         val appInfoButton = findViewById<ImageButton>(R.id.app_info_button)
+        val playListButton = findViewById<ImageButton>(R.id.play_list_button)
 
         backButton.setOnClickListener {
             val intent = Intent(applicationContext, HomeActivity::class.java)
@@ -24,6 +23,12 @@ class SettingsActivity : AppCompatActivity() {
 
         appInfoButton.setOnClickListener {
             val intent = Intent(applicationContext, AppInfoActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        playListButton.setOnClickListener {
+            val intent = Intent(applicationContext, PlayListActivity::class.java)
             startActivity(intent)
             finish()
         }
