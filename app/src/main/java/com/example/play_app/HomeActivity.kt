@@ -2,6 +2,8 @@ package com.example.play_app
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -48,6 +50,7 @@ class HomeActivity : AppCompatActivity() {
         val textView: TextView = view.findViewById<TextView>(R.id.result)
         textView.text = "결과"
         val alertDialog = AlertDialog.Builder(this).setCancelable(false).create()
+        alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val close_button = view.findViewById<ImageButton>(R.id.close)
         close_button.setOnClickListener {
             alertDialog.cancel()
@@ -61,6 +64,7 @@ class HomeActivity : AppCompatActivity() {
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.filter_layout,null)
         val alertDialog = AlertDialog.Builder(this).create()
+        alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val finish_select_button = view.findViewById<Button>(R.id.finish_select_button)
         finish_select_button.setOnClickListener{
             alertDialog.cancel()
