@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageButton
@@ -66,70 +65,25 @@ class HomeActivity : AppCompatActivity() {
         finish_select_button.setOnClickListener{
             alertDialog.cancel()
         }
-        val indoor_button = view.findViewById<Button>(R.id.indoor_button)
-        indoor_button.setOnClickListener{
-            if(indoor_button.isSelected == false){
-                indoor_button.isSelected = true
-            }else{
-                indoor_button.isSelected = false
+        fun buttonSelected(id:Int){
+            val btn = view.findViewById<Button>(id)
+            btn.setOnClickListener{
+                if(btn.isSelected==false){
+                    btn.isSelected = true
+                }else{
+                    btn.isSelected = false
+                }
             }
+
         }
-        val outdoor_button = view.findViewById<Button>(R.id.outdoor_button)
-        outdoor_button.setOnClickListener{
-            if(outdoor_button.isSelected == false){
-                outdoor_button.isSelected = true
-            }else{
-                outdoor_button.isSelected = false
-            }
-        }
-        val free_button = view.findViewById<Button>(R.id.free_button)
-        free_button.setOnClickListener{
-            if(free_button.isSelected == false){
-                free_button.isSelected = true
-            }else{
-                free_button.isSelected = false
-            }
-        }
-        val pay_button = view.findViewById<Button>(R.id.pay_button)
-        pay_button.setOnClickListener{
-            if(pay_button.isSelected == false){
-                pay_button.isSelected = true
-            }else{
-                pay_button.isSelected = false
-            }
-        }
-        val alone_button = view.findViewById<Button>(R.id.alone_button)
-        alone_button.setOnClickListener{
-            if(alone_button.isSelected == false){
-                alone_button.isSelected = true
-            }else{
-                alone_button.isSelected = false
-            }
-        }
-        val friend_button = view.findViewById<Button>(R.id.friend_button)
-        friend_button.setOnClickListener{
-            if(friend_button.isSelected == false){
-                friend_button.isSelected = true
-            }else{
-                friend_button.isSelected = false
-            }
-        }
-        val active_button = view.findViewById<Button>(R.id.active_button)
-        active_button.setOnClickListener{
-            if(active_button.isSelected == false){
-                active_button.isSelected = true
-            }else{
-                active_button.isSelected = false
-            }
-        }
-        val inactive_button = view.findViewById<Button>(R.id.inactive_button)
-        inactive_button.setOnClickListener{
-            if(inactive_button.isSelected == false){
-                inactive_button.isSelected = true
-            }else{
-                inactive_button.isSelected = false
-            }
-        }
+        buttonSelected(R.id.indoor_button)
+        buttonSelected(R.id.outdoor_button)
+        buttonSelected(R.id.free_button)
+        buttonSelected(R.id.pay_button)
+        buttonSelected(R.id.alone_button)
+        buttonSelected(R.id.friend_button)
+        buttonSelected(R.id.active_button)
+        buttonSelected(R.id.inactive_button)
         alertDialog.setView(view)
         alertDialog.show()
     }
