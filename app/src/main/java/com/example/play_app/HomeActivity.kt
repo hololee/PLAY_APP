@@ -4,9 +4,13 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_home.*
@@ -24,7 +28,14 @@ class HomeActivity : AppCompatActivity() {
         }
 
         start_button.setOnClickListener{
-            showResult()
+
+            val roulette:ImageView = findViewById<ImageView>(R.id.roulette)
+            val rotate_animation = AnimationUtils.loadAnimation(this,R.anim.rotate)
+            roulette.startAnimation(rotate_animation)
+            Handler().postDelayed({
+                showResult()
+            },2500)
+
         }
 
         filter_button.setOnClickListener {
