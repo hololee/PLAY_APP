@@ -1,6 +1,7 @@
 package com.example.play_app
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,10 +20,15 @@ import androidx.core.view.marginBottom
 import androidx.core.view.marginEnd
 import org.w3c.dom.Text
 
-
 class PlayListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?)
     {
+        play_list_back_button.setOnClickListener{
+            val intent = Intent(this,SettingsActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_list)
 
@@ -87,5 +93,6 @@ private class MyCustomAdapter(context: Context) : BaseAdapter()
         val nameTextView = listlayout.findViewById<TextView>(R.id.list_item)
         nameTextView.text = names[position]
         return listlayout
+
     }
 }

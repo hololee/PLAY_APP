@@ -3,11 +3,12 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:background="@drawable/popup_color"
+    >
 
     <TextView
         android:id="@+id/result"
-        android:background="@drawable/popup_color"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
