@@ -11,8 +11,6 @@ class PlayListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_play_list)
 
         play_list_back_button.setOnClickListener{
-            val intent = Intent(this,SettingsActivity::class.java)
-            startActivity(intent)
             finish()
         }
     }
