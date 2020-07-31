@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:textColor="#FFFFFF"
-        android:textSize="80sp" />
+        android:textSize="50dp" />
 
     <ImageButton
         android:id="@+id/close"
