@@ -18,6 +18,14 @@ import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.filter_layout.*
 
 class HomeActivity : AppCompatActivity() {
+    var indoor:Boolean = false
+    var outdoor:Boolean = false
+    var free:Boolean = false
+    var pay:Boolean = false
+    var alone:Boolean = false
+    var friend:Boolean = false
+    var active:Boolean = false
+    var inactive:Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -44,6 +52,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
     }
+
     fun showResult(){
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.popup_layout,null)
@@ -71,11 +80,49 @@ class HomeActivity : AppCompatActivity() {
         }
         fun buttonSelected(id:Int){
             val btn = view.findViewById<Button>(id)
+            val indoorButton = view.findViewById<Button>(R.id.indoor_button)
+            val outdoorButton = view.findViewById<Button>(R.id.outdoor_button)
+            val freeButton = view.findViewById<Button>(R.id.free_button)
+            val payButton = view.findViewById<Button>(R.id.pay_button)
+            val aloneButton = view.findViewById<Button>(R.id.alone_button)
+            val friendButton = view.findViewById<Button>(R.id.friend_button)
+            val activeButton = view.findViewById<Button>(R.id.active_button)
+            val inactiveButton = view.findViewById<Button>(R.id.inactive_button)
+            when(btn){
+                indoorButton -> btn.isSelected = indoor
+                outdoorButton -> btn.isSelected = outdoor
+                freeButton -> btn.isSelected = free
+                payButton -> btn.isSelected = pay
+                aloneButton -> btn.isSelected = alone
+                friendButton -> btn.isSelected = friend
+                activeButton -> btn.isSelected = active
+                inactiveButton -> btn.isSelected = inactive
+            }
             btn.setOnClickListener{
                 if(btn.isSelected==false){
                     btn.isSelected = true
+                    when(btn){
+                        indoorButton -> indoor = true
+                        outdoorButton -> outdoor = true
+                        freeButton -> free = true
+                        payButton -> pay = true
+                        aloneButton -> alone = true
+                        friendButton -> friend = true
+                        activeButton -> active = true
+                        inactiveButton -> inactive = true
+                    }
                 }else{
                     btn.isSelected = false
+                    when(btn){
+                        indoorButton -> indoor = false
+                        outdoorButton -> outdoor = false
+                        freeButton -> free = false
+                        payButton -> pay = false
+                        aloneButton -> alone = false
+                        friendButton -> friend = false
+                        activeButton -> active = false
+                        inactiveButton -> inactive = false
+                    }
                 }
             }
 
