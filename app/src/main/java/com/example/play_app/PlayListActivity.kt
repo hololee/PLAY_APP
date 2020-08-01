@@ -8,16 +8,16 @@ import android.widget.*
 import kotlinx.android.synthetic.main.activity_play_list.*
 
 class PlayListActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?)
     {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_play_list)
         play_list_back_button.setOnClickListener{
             val intent = Intent(this,SettingsActivity::class.java)
             startActivity(intent)
             finish()
         }
-
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_play_list)
 
         val listView = findViewById<ListView>(R.id.listView)
         val item = arrayOf<String>(
