@@ -22,6 +22,7 @@
             android:background="@drawable/borderline_bottom"
             android:gravity="center"
             android:text="놀이 목록"
+            android:textColor="#000000"
             android:textSize="30sp" />
 
         <ImageButton
@@ -42,6 +43,7 @@
             android:layout_toRightOf="@id/list_add_btn"
             android:gravity="center_vertical"
             android:text="놀이 추가"
+            android:textColor="#000000"
             android:textSize="30sp" />
 
         <ImageButton
