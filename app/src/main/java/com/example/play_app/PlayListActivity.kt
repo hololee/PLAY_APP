@@ -1,22 +1,18 @@
 package com.example.play_app
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Context.LAYOUT_INFLATER_SERVICE
-import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Parcel
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContextCompat.getSystemService
-import kotlinx.android.synthetic.main.play_list_check_layout.view.*
-import kotlinx.android.synthetic.main.play_list_check_layout.view.place_info as place_info1
+import kotlinx.android.synthetic.main.activity_play_list.*
+
 var place_current = 0
 var cost_current = 0
 var num_current = 0
@@ -31,8 +27,8 @@ class PlayListActivity() : AppCompatActivity() {
             finish()
         }
 
-        val info = findViewById<TextView>(R.id.info_1)
-        val plus = findViewById<TextView>(R.id.list_add_btn)
+        val info = findViewById<ImageButton>(R.id.info_1)
+        val plus = findViewById<ImageButton>(R.id.list_add_btn)
         info.setOnClickListener {
             showInfo()
         }
@@ -104,13 +100,14 @@ class PlayListActivity() : AppCompatActivity() {
         close_button.setOnClickListener {
             alertDialog.cancel()
         }
-        val save = view.findViewById<ImageButton>(R.id.save_button)
+        val save = view.findViewById<Button>(R.id.save_button)
         save.setOnClickListener {
             alertDialog.cancel()//저장안되고 일단 닫기
         }
         alertDialog.setView(view)
         alertDialog.show()
-        val layout = alertDialog.window?.setLayout(1000, 850)
+        alertDialog.window?.setLayout(1000, 1500)
+        alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
     }
 
