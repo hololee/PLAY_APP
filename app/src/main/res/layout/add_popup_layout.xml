@@ -1,26 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:background="@drawable/popup_color">
 
-    <TextView
-        android:id="@+id/addtitle"
+    <RelativeLayout
+        android:id="@+id/addplay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/popup_color"
-        android:gravity="start"
-        android:text="\n    추가하기"
-        android:textColor="#FFFFFF"
-        android:textSize="40sp" />
+        android:gravity="start" />
+
+    <TextView
+        android:id="@+id/addplaytitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/addplay"
+        android:layout_alignTop="@id/addplay"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:text="추가하기"
+        android:textColor="#ffffff"
+        android:textSize="50dp"
+        android:textStyle="bold" />
 
     <ImageButton
         android:id="@+id/close"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_alignTop="@id/addtitle"
-        android:layout_alignRight="@id/addtitle"
+        android:layout_alignTop="@id/addplay"
+        android:layout_alignRight="@id/addplay"
         android:layout_marginTop="21dp"
         android:layout_marginRight="29dp"
         android:layout_marginBottom="300dp"
@@ -30,119 +40,120 @@
 
     <EditText
         android:id="@+id/add_playname"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_below="@id/addplaytitle"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginTop="30dp"
         android:background="#8CFFFFFF"
         android:text="놀이명"
         android:textColor="#9E9B9B"
-        android:textSize="20dp"
-        android:layout_marginStart="28dp"
-        android:layout_below="@id/addtitle"
-        android:layout_marginTop="-600dp"
-        android:textColorHint="@color/cardview_dark_background" />
+        android:textColorHint="@color/cardview_dark_background"
+        android:textSize="20dp" />
 
     <TextView
-    android:id="@+id/place"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="장소"
-    android:textColor="#000000"
-    android:textSize="30dp"
-    android:layout_marginStart="37dp"
+        android:id="@+id/place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/add_playname"
+        android:layout_marginStart="37dp"
         android:layout_marginTop="50dp"
-    />
+        android:text="장소"
+        android:textColor="#000000"
+        android:textSize="30dp" />
 
     <Button
         android:id="@+id/place_button"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginLeft="270dp"
-        android:background=""
         android:layout_below="@id/add_playname"
+        android:layout_marginLeft="270dp"
+        android:layout_marginRight="50dp"
         android:layout_marginTop="50dp"
+        android:background="#00ff0000"
         android:textColor="#BFBBBB"
-        android:textSize="25dp"/>
+        android:textSize="25dp" />
 
     <TextView
         android:id="@+id/cost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/place"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="20dp"
         android:text="비용"
         android:textColor="#000000"
-        android:textSize="30dp"
-        android:layout_marginStart="37dp"
-        android:layout_below="@id/place"
-        android:layout_marginTop="20dp"
-        />
+        android:textSize="30dp" />
 
     <Button
         android:id="@+id/cost_button"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginLeft="270dp"
-        android:background=""
         android:layout_below="@id/place_button"
+        android:layout_marginLeft="270dp"
+        android:layout_marginRight="50dp"
         android:layout_marginTop="20dp"
+        android:background="#00ff0000"
         android:textColor="#BFBBBB"
-        android:textSize="25dp"/>
+        android:textSize="25dp" />
 
     <TextView
         android:id="@+id/num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/cost"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="20dp"
         android:text="인원"
         android:textColor="#000000"
-        android:textSize="30dp"
-        android:layout_marginStart="37dp"
-        android:layout_below="@id/cost"
-        android:layout_marginTop="20dp"
-        />
+        android:textSize="30dp" />
 
     <Button
         android:id="@+id/num_button"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginLeft="270dp"
-        android:background=""
         android:layout_below="@id/cost_button"
+        android:layout_marginLeft="270dp"
+        android:layout_marginRight="50dp"
         android:layout_marginTop="20dp"
+        android:background="#00ff0000"
         android:textColor="#BFBBBB"
-        android:textSize="25dp"/>
+        android:textSize="25dp" />
 
     <TextView
         android:id="@+id/act"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/num"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="20dp"
         android:text="활동성"
         android:textColor="#000000"
-        android:textSize="30dp"
-        android:layout_marginStart="37dp"
-        android:layout_below="@id/num"
-        android:layout_marginTop="20dp"
-        />
+        android:textSize="30dp" />
 
     <Button
         android:id="@+id/act_button"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginLeft="270dp"
-        android:background=""
         android:layout_below="@id/num_button"
+        android:layout_marginLeft="270dp"
+        android:layout_marginRight="50dp"
         android:layout_marginTop="20dp"
+        android:background="#00ff0000"
         android:textColor="#BFBBBB"
-        android:textSize="25dp"/>
+        android:textSize="25dp" />
 
     <Button
         android:id="@+id/save_button"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/round_button"
         android:text="저장"
-        android:textSize="25dp" />
-
+        android:textSize="25dp"
+        android:layout_marginBottom="30dp"/>
 
 
 </RelativeLayout>
