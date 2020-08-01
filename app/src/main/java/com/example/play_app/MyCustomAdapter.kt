@@ -33,4 +33,5 @@ public class MyCustomAdapter(context: Context,item : Array<String>) : BaseAdapte
 
         return listlayout
     }
+
 }
