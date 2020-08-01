@@ -23,7 +23,7 @@
             android:textSize="30sp" />
 
         <ImageButton
-            android:id="@+id/play_list_back"
+            android:id="@+id/play_list_back_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="10dp"
