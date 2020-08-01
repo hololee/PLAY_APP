@@ -2,13 +2,9 @@ package com.example.play_app
 
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Context.LAYOUT_INFLATER_SERVICE
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Parcel
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
@@ -16,8 +12,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat.getSystemService
-import kotlinx.android.synthetic.main.play_list_check_layout.view.*
-import kotlinx.android.synthetic.main.play_list_check_layout.view.place_info as place_info1
+
 var place_current = 0
 var cost_current = 0
 var num_current = 0
@@ -25,7 +20,7 @@ var act_current = 0
 
 class PlayListActivity() : AppCompatActivity() {
 
-    @SuppressLint("WrongViewCast")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_list)
