@@ -11,8 +11,6 @@ class AppInfoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_app_info)
 
         app_info_back_button.setOnClickListener{
-            val intent = Intent(this,SettingsActivity::class.java)
-            startActivity(intent)
             finish()
         }
 
