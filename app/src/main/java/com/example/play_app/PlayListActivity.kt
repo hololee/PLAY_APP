@@ -1,5 +1,6 @@
 package com.example.play_app
 
+
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Context.LAYOUT_INFLATER_SERVICE
@@ -23,16 +24,13 @@ var num_current = 0
 var act_current = 0
 
 class PlayListActivity() : AppCompatActivity() {
+
+    @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_list)
-
-        play_list_back_button.setOnClickListener{
-            finish()
-        }
-
-        val info = findViewById<TextView>(R.id.info_1)
-        val plus = findViewById<TextView>(R.id.list_add_btn)
+        val info = findViewById<ImageButton>(R.id.info_1)
+        val plus = findViewById<ImageButton>(R.id.list_add_btn)
         info.setOnClickListener {
             showInfo()
         }
@@ -42,11 +40,11 @@ class PlayListActivity() : AppCompatActivity() {
     }
 
 
-   fun showPlus(){
+    fun showPlus(){
         val inflater = getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val view = inflater.inflate(R.layout.add_popup_layout,null)
+        val view = inflater.inflate(R.layout.play_list_check_layout,null)
         val place_btn: Button = view.findViewById<Button>(R.id.place_button)
-        place_btn.setOnClickListener(View.OnClickListener() {
+        val value: Any = place_btn.setOnClickListener(View.OnClickListener() {
             fun onClick(textView: TextView) {
                 if (place_current == 0) {
                     place_btn.setText("실내")
@@ -58,8 +56,9 @@ class PlayListActivity() : AppCompatActivity() {
             }
         }
         )
-        val cost_btn: Button = view.findViewById< Button >(R.id.cost_button)
-        cost_btn.setOnClickListener(View.OnClickListener() {
+
+        val cost_btn : Button = view.findViewById< Button >(R.id.cost_button)
+        val value2: Any = cost_btn.setOnClickListener(View.OnClickListener() {
             fun onClick(textView: TextView) {
                 if (cost_current == 0) {
                     cost_btn.setText("유료")
@@ -98,7 +97,7 @@ class PlayListActivity() : AppCompatActivity() {
         }
         )
 
-        val alertDialog =
+            val alertDialog =
         AlertDialog.Builder(this).setCancelable(false).create()
         val close_button = view.findViewById<ImageButton>(R.id.close)
         close_button.setOnClickListener {
@@ -114,8 +113,10 @@ class PlayListActivity() : AppCompatActivity() {
 
     }
 
+}
+
     fun showInfo(){
-        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val inflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.play_list_check_layout,null)
 
         val textView1: TextView = view.findViewById<TextView>(R.id.place_info)
@@ -144,7 +145,6 @@ class PlayListActivity() : AppCompatActivity() {
         val layout = alertDialog.window?.setLayout(1000, 850)
     }
 
-}
 
 
 
