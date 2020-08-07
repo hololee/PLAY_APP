@@ -1,26 +1,22 @@
 package com.example.play_app
 
-import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_play_list.*
-var place_current:Boolean = false
-var cost_current:Boolean = false
-var num_current:Boolean = false
-var act_current:Boolean = false
 
 class PlayListActivity : AppCompatActivity() {
+    var place_current:Boolean = false
+    var cost_current:Boolean = false
+    var num_current:Boolean = false
+    var act_current:Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -39,11 +35,8 @@ class PlayListActivity : AppCompatActivity() {
             "타로", "틀린그림찾기", "피크닉", "피포페인팅", "향수 만들기", "홍삼게임", "화장품 만들기"
         )
         listView.adapter = MyCustomAdapter(this, item)
-        val info = findViewById<ImageButton>(R.id.btn_info)
+
         val plus = findViewById<ImageButton>(R.id.list_add_btn)
-//        info.setOnClickListener {
-//            showInfo()
-//        }
         plus.setOnClickListener {
             showPlus()
         }
@@ -136,38 +129,6 @@ class PlayListActivity : AppCompatActivity() {
         alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
     }
-
-//    fun showInfo(){
-//
-//        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-//        val view = inflater.inflate(R.layout.play_list_check_layout,null)
-//        val textView1: TextView = view.findViewById<TextView>(R.id.place_info)
-//        if(place_current==false) textView1.setText("실내")
-//        else textView1.setText("실외")
-//
-//        val textView2: TextView = view.findViewById<TextView>(R.id.cost_info)
-//        if(cost_current==false) textView1.setText("무료")
-//        else textView2.setText("유료")
-//
-//        val textView3: TextView = view.findViewById<TextView>(R.id.num_info)
-//        if(num_current==false) textView1.setText("혼자")
-//        else textView3.setText("여럿이")
-//
-//        val textView4: TextView = view.findViewById<TextView>(R.id.act_info)
-//        if(act_current==false) textView1.setText("활동적")
-//        else textView4.setText("비활동적")
-//
-//        val alertDialog = AlertDialog.Builder(this).setCancelable(false).create()
-//        val close_button = view.findViewById<ImageButton>(R.id.close)
-//        close_button.setOnClickListener {
-//            alertDialog.cancel()
-//        }
-//        alertDialog.setView(view)
-//        alertDialog.show()
-//        alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-//        val layout = alertDialog.window?.setLayout(1000, 850)
-//
-//    }
 
 }
 
