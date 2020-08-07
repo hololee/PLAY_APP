@@ -3,14 +3,17 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:background="@drawable/popup_color">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/popup_color"
+        android:layout_marginTop="50dp"
         android:gravity="start"
+        android:text="놀이 이름"
+        android:layout_marginLeft="20dp"
         android:textColor="#FFFFFF"
         android:textSize="40sp" />
 
@@ -18,7 +21,6 @@
         android:id="@+id/close"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_alignTop="@id/title"
         android:layout_alignRight="@id/title"
         android:layout_marginTop="21dp"
         android:layout_marginRight="29dp"
@@ -35,8 +37,7 @@
         android:textColor="#000000"
         android:textSize="30dp"
         android:layout_marginStart="37dp"
-        android:layout_below="@id/title"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="220dp"
         />
 
     <TextView
@@ -45,8 +46,7 @@
         android:layout_height="40dp"
         android:layout_marginLeft="270dp"
         android:background="#00ff0000"
-        android:layout_below="@id/title"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="220dp"
         android:textColor="#BFBBBB"
         android:textSize="25dp"/>
 
