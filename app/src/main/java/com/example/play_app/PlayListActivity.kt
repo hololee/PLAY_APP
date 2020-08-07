@@ -145,8 +145,10 @@ class PlayListActivity : AppCompatActivity() {
 
         val save = view.findViewById<Button>(R.id.save_button)
         save.setOnClickListener() {
-            item.add(add_playname.text.toString())
+            val addPlayName = view.findViewById<EditText>(R.id.add_playname)
+            item.add(addPlayName?.text.toString())
             mAdpater.notifyDataSetChanged()
+            alertDialog.cancel()
         }
 
         alertDialog.setView(view)

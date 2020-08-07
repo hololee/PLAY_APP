@@ -68,6 +68,7 @@ public class MyCustomAdapter(context: Context,item : ArrayList<String>) : BaseAd
         close_button.setOnClickListener {
             alertDialog.cancel()
         }
+
         alertDialog.setView(view)
         alertDialog.show()
         alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))

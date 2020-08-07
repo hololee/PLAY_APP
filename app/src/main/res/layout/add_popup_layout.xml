@@ -48,7 +48,6 @@
         android:layout_marginTop="30dp"
         android:background="#8CFFFFFF"
         android:hint="놀이명"
-        android:inputType="text"
         android:textColor="#000000"
         android:textColorHint="@color/cardview_dark_background"
         android:textSize="20dp" />
