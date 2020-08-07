@@ -9,10 +9,9 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
-import android.util.SparseBooleanArray
-import android.view.View
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_play_list.*
+import kotlinx.android.synthetic.main.add_popup_layout.*
 
 class PlayListActivity : AppCompatActivity() {
     var place_current:Boolean = false
@@ -46,24 +45,19 @@ class PlayListActivity : AppCompatActivity() {
         val listView = findViewById<ListView>(R.id.listView)
         mAdpater = MyCustomAdapter(this, item)
         listView.adapter = mAdpater
-//        val adapter = listView.adapter
+
+        save_button.setOnClickListener() {
+            item.add(add_playname.text.toString())
+            mAdpater.notifyDataSetChanged()
+        }
+
+
 
         listView.choiceMode = ListView.CHOICE_MODE_MULTIPLE
 
-        val delbtn = findViewById<ImageButton>(R.id.list_del_btn)
-        delbtn.setOnClickListener()
+        list_del_btn.setOnClickListener()
         {
-//            fun onItemClick(av : AdapterView<?> , v : View , position : Int , id : Long)
-//            {
-//                var cb : CheckBox = (listView.getChildAt(position).findViewById(R.id.list_item))
-//
-//                if(cb.isChecked) {
-//                    cb.setChecked(false)
-//                }
-//                else {
-//                    cb.setChecked(true)
-//                }
-//            }
+
             val checkedItem = listView.checkedItemPositions
 
             (mAdpater.count downTo 0)
@@ -72,21 +66,7 @@ class PlayListActivity : AppCompatActivity() {
 
             listView.clearChoices()
             mAdpater.notifyDataSetChanged()
-//            fun onClick(v : View)
-//            {
-//                val checkedItems : SparseBooleanArray = listView.checkedItemPositions
-//                val count = adapter.count
-//
-//                for (i in 0 until count)
-//                {
-//                    if(checkedItems.get(i))
-//                    {
-//                        item.removeAt(i)
-//                    }
-//                }
-//                listView.clearChoices()
-//                adapter.notifyDataSetChanged()
-//            }
+
         }
 
     }
