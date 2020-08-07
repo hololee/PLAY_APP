@@ -11,7 +11,7 @@ import android.widget.TextView
 import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
 
-public class MyCustomAdapter(context: Context,item : Array<String>) : BaseAdapter() {
+public class MyCustomAdapter(context: Context,item : ArrayList<String>) : BaseAdapter() {
     private val mContext: Context
     private val mitem = item
 
@@ -32,7 +32,7 @@ public class MyCustomAdapter(context: Context,item : Array<String>) : BaseAdapte
 
         val nameTextView = listlayout.findViewById<TextView>(R.id.list_item)
         nameTextView.text = mitem[position]
-        // delbtn,infobtn onClick함수
+
         val info = listlayout.findViewById<ImageButton>(R.id.btn_info)
         info?.setOnClickListener {
             showInfo(nameTextView.text.toString())
