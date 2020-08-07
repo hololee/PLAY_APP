@@ -45,17 +45,11 @@ class PlayListActivity : AppCompatActivity() {
         val listView = findViewById<ListView>(R.id.listView)
         mAdpater = MyCustomAdapter(this, item)
         listView.adapter = mAdpater
-
-        save_button.setOnClickListener() {
-            item.add(add_playname.text.toString())
-            mAdpater.notifyDataSetChanged()
-        }
-
-
-
         listView.choiceMode = ListView.CHOICE_MODE_MULTIPLE
 
-        list_del_btn.setOnClickListener()
+        val delbtn = findViewById<ImageButton>(R.id.list_del_btn)
+
+        delbtn.setOnClickListener()
         {
 
             val checkedItem = listView.checkedItemPositions
@@ -148,10 +142,13 @@ class PlayListActivity : AppCompatActivity() {
         close_button.setOnClickListener {
             alertDialog.cancel()
         }
+
         val save = view.findViewById<Button>(R.id.save_button)
-        save.setOnClickListener {
-            alertDialog.cancel()//저장안되고 일단 닫기
+        save.setOnClickListener() {
+            item.add(add_playname.text.toString())
+            mAdpater.notifyDataSetChanged()
         }
+
         alertDialog.setView(view)
         alertDialog.show()
         alertDialog.window?.setLayout(1000, 1350)
