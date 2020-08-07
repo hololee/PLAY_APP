@@ -5,11 +5,9 @@ import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
-import android.util.SparseBooleanArray
 import android.view.View
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_play_list.*
@@ -180,6 +178,3 @@ class PlayListActivity : AppCompatActivity() {
     }
 
 }
-
-
-
