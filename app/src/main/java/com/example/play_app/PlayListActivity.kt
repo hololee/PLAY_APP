@@ -9,8 +9,6 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
-import android.util.SparseBooleanArray
-import android.view.View
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_play_list.*
 
@@ -169,8 +167,12 @@ class PlayListActivity : AppCompatActivity() {
             alertDialog.cancel()
         }
         val save = view.findViewById<Button>(R.id.save_button)
-        save.setOnClickListener {
-            alertDialog.cancel()//저장안되고 일단 닫기
+        save.setOnClickListener() {
+            val addPlayName = view.findViewById<EditText>(R.id.add_playname)
+            item.add(addPlayName?.text.toString())
+            mAdpater.notifyDataSetChanged()
+            alertDialog.cancel()
+
         }
         alertDialog.setView(view)
         alertDialog.show()
