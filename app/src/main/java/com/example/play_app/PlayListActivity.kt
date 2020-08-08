@@ -143,7 +143,7 @@ class PlayListActivity : AppCompatActivity() {
         val save = view.findViewById<Button>(R.id.save_button)
         save.setOnClickListener() {
             val addPlayName = view.findViewById<EditText>(R.id.add_playname)
-            item.add(Play(item.size+2,addPlayName?.text.toString(),place_btn.text.toString(),cost_btn.text.toString(),num_btn.text.toString(),act_btn.text.toString()))
+            item.add(Play(item.last().play_id+1,addPlayName?.text.toString(),place_btn.text.toString(),cost_btn.text.toString(),num_btn.text.toString(),act_btn.text.toString()))
             db.playDao().insert(item.last())
             mAdpater.notifyDataSetChanged()
             alertDialog.cancel()
