@@ -34,7 +34,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         val db: PlayDatabase ?= PlayDatabase.getInstance(this)
-        val plays = db?.playDao()?.getAll()
+        var plays:List<Play>?
 
         setting.setOnClickListener {
             val intent = Intent(this,SettingsActivity::class.java)
@@ -47,6 +47,7 @@ class HomeActivity : AppCompatActivity() {
             val rotate_animation = AnimationUtils.loadAnimation(this,R.anim.rotate)
             roulette.startAnimation(rotate_animation)
             Handler().postDelayed({
+                plays = db?.playDao()?.getAll()
                 showResult(plays)
             },2500)
 
