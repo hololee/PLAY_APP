@@ -10,8 +10,9 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
+import com.example.play_app.db.entity.Play
 
-public class MyCustomAdapter(context: Context,item : ArrayList<String>) : BaseAdapter() {
+public class MyCustomAdapter(context: Context,item : ArrayList<Play>?) : BaseAdapter() {
     private val mContext: Context
     private val mitem = item
 
@@ -19,11 +20,11 @@ public class MyCustomAdapter(context: Context,item : ArrayList<String>) : BaseAd
         mContext = context
     }
 
-    override fun getCount() = mitem.size
+    override fun getCount() = mitem!!.size
 
     override fun getItemId(position: Int) = position.toLong()
 
-    override fun getItem(position: Int) = mitem[position]
+    override fun getItem(position: Int) = mitem?.get(position)
 
     override fun getView(position: Int, view: View?, viewgroup: ViewGroup?): View {
 
@@ -31,40 +32,36 @@ public class MyCustomAdapter(context: Context,item : ArrayList<String>) : BaseAd
         val listlayout = layoutInflater.inflate(R.layout.listview_layout, viewgroup, false)
 
         val nameTextView = listlayout.findViewById<TextView>(R.id.list_item)
-        nameTextView.text = mitem[position]
+        nameTextView.text = mitem?.get(position)?.play_name
 
         val info = listlayout.findViewById<ImageButton>(R.id.btn_info)
         info?.setOnClickListener {
-            showInfo(nameTextView.text.toString())
+            showInfo(getItem(position))
         }
 
         return listlayout
     }
 
-    fun showInfo(name:String){
+    fun showInfo(item:Play?){
 
         val inflater = LayoutInflater.from(mContext)
         val view = inflater.inflate(R.layout.play_list_check_layout,null)
         val playName :TextView = view.findViewById<TextView>(R.id.title)
-        playName.setText(name)
+        playName.setText(item?.play_name)
         val textView1: TextView = view.findViewById<TextView>(R.id.place_info)
-        var place_current = PlayListActivity::place_current.get(PlayListActivity())
-        if(place_current==false) textView1.setText("실내")
+        if(item?.place=="실내") textView1.setText("실내")
         else textView1.setText("실외")
 
         val textView2: TextView = view.findViewById<TextView>(R.id.cost_info)
-        var cost_current = PlayListActivity::cost_current.get(PlayListActivity())
-        if(cost_current==false) textView2.setText("무료")
+        if(item?.cost=="무료") textView2.setText("무료")
         else textView2.setText("유료")
 
         val textView3: TextView = view.findViewById<TextView>(R.id.num_info)
-        var num_current = PlayListActivity::num_current.get(PlayListActivity())
-        if(num_current==false) textView3.setText("혼자")
-        else textView3.setText("여럿이")
+        if(item?.num=="혼자가능") textView3.setText("혼자가능")
+        else textView3.setText("친구필요")
 
         val textView4: TextView = view.findViewById<TextView>(R.id.act_info)
-        var act_current = PlayListActivity::act_current.get(PlayListActivity())
-        if(act_current==false) textView4.setText("활동적")
+        if(item?.act=="활동적") textView4.setText("활동적")
         else textView4.setText("비활동적")
 
         val alertDialog = AlertDialog.Builder(mContext).setCancelable(false).create()
