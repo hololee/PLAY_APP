@@ -60,6 +60,7 @@ class PlayListActivity : AppCompatActivity() {
 
             listView.clearChoices()
             mAdpater.notifyDataSetChanged()
+            Toast.makeText(this,"삭제되었습니다.",Toast.LENGTH_SHORT).show()
 
         }
 
@@ -149,6 +150,7 @@ class PlayListActivity : AppCompatActivity() {
             item.add(addPlayName?.text.toString())
             mAdpater.notifyDataSetChanged()
             alertDialog.cancel()
+            Toast.makeText(this,"추가되었습니다.",Toast.LENGTH_SHORT).show()
         }
 
         alertDialog.setView(view)
