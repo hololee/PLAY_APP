@@ -104,11 +104,11 @@ class PlayListActivity : AppCompatActivity() {
 
         fun n_btn(){
             if(!num_current){
-                num_btn.setText("여럿이서")
+                num_btn.setText("친구필요")
                 num_current = true
             }
             else{
-                num_btn.setText("혼자서")
+                num_btn.setText("혼자가능")
                 num_current = false
             }
         }

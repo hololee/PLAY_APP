@@ -57,8 +57,8 @@ public class MyCustomAdapter(context: Context,item : ArrayList<Play>?) : BaseAda
         else textView2.setText("유료")
 
         val textView3: TextView = view.findViewById<TextView>(R.id.num_info)
-        if(item?.num=="혼자서") textView3.setText("혼자서")
-        else textView3.setText("여럿이서")
+        if(item?.num=="혼자가능") textView3.setText("혼자가능")
+        else textView3.setText("친구필요")
 
         val textView4: TextView = view.findViewById<TextView>(R.id.act_info)
         if(item?.act=="활동적") textView4.setText("활동적")

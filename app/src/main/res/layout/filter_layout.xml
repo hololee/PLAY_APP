@@ -104,10 +104,10 @@
 
         <Button
             android:id="@+id/alone_button"
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:layout_height="50dp"
             android:background="@drawable/round_button"
-            android:text="혼자서"
+            android:text="혼자가능"
             android:textSize="25dp" />
 
         <Button
@@ -116,7 +116,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="50dp"
             android:background="@drawable/round_button"
-            android:text="여럿이서"
+            android:text="친구필요"
             android:textSize="25dp" />
 
     </LinearLayout>
