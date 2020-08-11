@@ -54,18 +54,23 @@ class PlayListActivity : AppCompatActivity() {
 
             val checkedItem = listView.checkedItemPositions
 
-            (mAdpater.count downTo 0)
-                .filter { checkedItem.get(it) }
-                .forEach { item.removeAt(it) }
-
-            listView.clearChoices()
-            mAdpater.notifyDataSetChanged()
-            Toast.makeText(this,"삭제되었습니다.",Toast.LENGTH_SHORT).show()
+            if(mAdpater.count-1 == item.size)
+            {
+                Toast.makeText(this,"놀이 목록에는 놀이가 한 개 이상 존재해야 합니다.",Toast.LENGTH_SHORT).show()
+            }
+            else
+            {
+                (mAdpater.count downTo 0)
+                    .filter { checkedItem.get(it) }
+                    .forEach { item.removeAt(it) }
+                listView.clearChoices()
+                mAdpater.notifyDataSetChanged()
+                Toast.makeText(this,"삭제되었습니다.",Toast.LENGTH_SHORT).show()
+            }
 
         }
 
     }
-
 
     fun showPlus(){
         val inflater = getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
