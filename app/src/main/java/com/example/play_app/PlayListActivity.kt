@@ -68,6 +68,24 @@ class PlayListActivity : AppCompatActivity() {
             }
         }
 
+        val reset = findViewById<ImageButton>(R.id.reset_btn)
+        val reset_item = db?.playDao()?.getAll() as ArrayList<Play>
+        reset.setOnClickListener()
+        {
+            (item.size-1 downTo 0)
+                .forEach {
+                    db.playDao().delete(item[it])
+                }
+            item.clear()
+            item.addAll(reset_item)
+            (0..item.size)
+                .forEach{
+                    db.playDao().insert(item[it])
+                }
+            mAdpater.notifyDataSetChanged()
+            Toast.makeText(this, "초기화되었습니다.",Toast.LENGTH_SHORT).show()
+        }
+
     }
 
 fun showPlus(db:PlayDatabase,item:ArrayList<Play>){
