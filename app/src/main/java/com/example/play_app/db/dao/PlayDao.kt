@@ -1,9 +1,6 @@
 package com.example.play_app.db.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Delete
+import androidx.room.*
 import com.example.play_app.db.entity.Play
 
 @Dao
@@ -40,5 +37,8 @@ interface PlayDao {
 
     @Delete
     fun delete(play: Play)
+
+    @Update
+    fun update(play: Play)
 
 }
