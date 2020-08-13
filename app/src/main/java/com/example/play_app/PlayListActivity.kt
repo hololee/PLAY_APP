@@ -20,6 +20,9 @@ class PlayListActivity : AppCompatActivity() {
     var num_current:Boolean = false
     var act_current:Boolean = false
 
+    val db: PlayDatabase ?= PlayDatabase.getInstance(this)
+    val item = db?.playDao()?.getAll() as ArrayList<Play>
+
     private lateinit var mAdpater : MyCustomAdapter
 
     override fun onCreate(savedInstanceState: Bundle?)
@@ -27,16 +30,13 @@ class PlayListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_list)
 
-        val db: PlayDatabase ?= PlayDatabase.getInstance(this)
-        val item = db?.playDao()?.getAll() as ArrayList<Play>
-
         play_list_back_button.setOnClickListener {
             finish()
         }
       
         val plus = findViewById<ImageButton>(R.id.list_add_btn)
         plus.setOnClickListener {
-            showPlus(db,item)
+            showPlus()
         }
 
         val listView = findViewById<ListView>(R.id.listView)
@@ -53,7 +53,7 @@ class PlayListActivity : AppCompatActivity() {
             (mAdpater.count downTo 0)
                 .filter { checkedItem.get(it) }
                 .forEach {
-                    db.playDao().delete(item.get(it))
+                    db?.playDao()?.delete(item.get(it))
                     item.removeAt(it)
                 }
 
@@ -64,7 +64,7 @@ class PlayListActivity : AppCompatActivity() {
     }
 
 
-    fun showPlus(db:PlayDatabase,item:ArrayList<Play>){
+    fun showPlus(){
         val inflater = getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.add_popup_layout,null)
         val place_btn: Button = view.findViewById<Button>(R.id.place_button)
@@ -144,14 +144,14 @@ class PlayListActivity : AppCompatActivity() {
         save.setOnClickListener() {
             val addPlayName = view.findViewById<EditText>(R.id.add_playname)
             item.add(Play(item.last().play_id+1,addPlayName?.text.toString(),place_btn.text.toString(),cost_btn.text.toString(),num_btn.text.toString(),act_btn.text.toString()))
-            db.playDao().insert(item.last())
+            db?.playDao()?.insert(item.last())
             mAdpater.notifyDataSetChanged()
             alertDialog.cancel()
 
         }
         alertDialog.setView(view)
         alertDialog.show()
-        alertDialog.window?.setLayout(1000, 1350)
+        alertDialog.window?.setLayout(1000, 1400)
         alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
     }

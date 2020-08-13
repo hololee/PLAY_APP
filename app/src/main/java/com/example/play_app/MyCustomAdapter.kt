@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Button
 import android.widget.TextView
 import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
+import com.example.play_app.db.PlayDatabase
 import com.example.play_app.db.entity.Play
 
 public class MyCustomAdapter(context: Context,item : ArrayList<Play>?) : BaseAdapter() {
@@ -36,37 +38,62 @@ public class MyCustomAdapter(context: Context,item : ArrayList<Play>?) : BaseAda
 
         val info = listlayout.findViewById<ImageButton>(R.id.btn_info)
         info?.setOnClickListener {
-            showInfo(getItem(position))
+            showInfo(getItem(position),position)
         }
 
         return listlayout
     }
 
-    fun showInfo(item:Play?){
+    fun showInfo(item:Play?,position:Int){
 
         val inflater = LayoutInflater.from(mContext)
         val view = inflater.inflate(R.layout.play_list_check_layout,null)
+        val db:PlayDatabase ?= PlayDatabase.getInstance(mContext)
         val playName :TextView = view.findViewById<TextView>(R.id.title)
         playName.setText(item?.play_name)
-        val textView1: TextView = view.findViewById<TextView>(R.id.place_info)
-        if(item?.place=="실내") textView1.setText("실내")
-        else textView1.setText("실외")
+        val placeInfoButton: Button = view.findViewById<Button>(R.id.place_info)
+        if(item?.place=="실내") placeInfoButton.setText("실내")
+        else placeInfoButton.setText("실외")
+        placeInfoButton.setOnClickListener{
+            if(placeInfoButton.text=="실내") placeInfoButton.setText("실외")
+            else placeInfoButton.setText("실내")
+        }
 
-        val textView2: TextView = view.findViewById<TextView>(R.id.cost_info)
-        if(item?.cost=="무료") textView2.setText("무료")
-        else textView2.setText("유료")
+        val costInfoButton: Button = view.findViewById<Button>(R.id.cost_info)
+        if(item?.cost=="무료") costInfoButton.setText("무료")
+        else costInfoButton.setText("유료")
+        costInfoButton.setOnClickListener{
+            if(costInfoButton.text=="무료") costInfoButton.setText("유료")
+            else costInfoButton.setText("무료")
+        }
 
-        val textView3: TextView = view.findViewById<TextView>(R.id.num_info)
-        if(item?.num=="혼자가능") textView3.setText("혼자가능")
-        else textView3.setText("친구필요")
+        val numInfoButton: Button= view.findViewById<Button>(R.id.num_info)
+        if(item?.num=="혼자가능") numInfoButton.setText("혼자가능")
+        else numInfoButton.setText("친구필요")
+        numInfoButton.setOnClickListener{
+            if(numInfoButton.text=="혼자가능")  numInfoButton.setText("친구필요")
+            else numInfoButton.setText("혼자가능")
+        }
 
-        val textView4: TextView = view.findViewById<TextView>(R.id.act_info)
-        if(item?.act=="활동적") textView4.setText("활동적")
-        else textView4.setText("비활동적")
+        val actInfoButton: Button = view.findViewById<Button>(R.id.act_info)
+        if(item?.act=="활동적") actInfoButton.setText("활동적")
+        else actInfoButton.setText("비활동적")
+        actInfoButton.setOnClickListener{
+            if(actInfoButton.text=="활동적") actInfoButton.setText("비활동적")
+            else actInfoButton.setText("활동적")
+        }
 
         val alertDialog = AlertDialog.Builder(mContext).setCancelable(false).create()
         val close_button = view.findViewById<ImageButton>(R.id.close)
         close_button.setOnClickListener {
+            alertDialog.cancel()
+        }
+
+        val modifyButton:Button = view.findViewById<Button>(R.id.modify_button)
+        modifyButton.setOnClickListener{
+            mitem?.set(position,Play(item!!.play_id,item.play_name,placeInfoButton.text.toString(),costInfoButton.text.toString(),numInfoButton.text.toString(),actInfoButton.text.toString()))
+            db?.playDao()?.update(item!!)
+            this.notifyDataSetChanged()
             alertDialog.cancel()
         }
 
