@@ -20,8 +20,8 @@ class PlayListActivity : AppCompatActivity() {
     var num_current:Boolean = false
     var act_current:Boolean = false
 
-    val db: PlayDatabase ?= PlayDatabase.getInstance(this)
-    val item = db?.playDao()?.getAll() as ArrayList<Play>
+    var db: PlayDatabase ?= PlayDatabase.getInstance(this)
+    var item = db?.playDao()?.getAll() as ArrayList<Play>
 
     private lateinit var mAdpater : MyCustomAdapter
 
@@ -69,23 +69,14 @@ class PlayListActivity : AppCompatActivity() {
         }
 
         val reset = findViewById<ImageButton>(R.id.reset_btn)
-        val reset_item = db?.playDao()?.getAll() as ArrayList<Play>
         reset.setOnClickListener()
         {
-            (item.size-1 downTo 0)
-                .forEach {
-                    db.playDao().delete(item[it])
-                }
+            db = PlayDatabase.getInstance(this)
             item.clear()
-            item.addAll(reset_item)
-            (0..item.size)
-                .forEach{
-                    db.playDao().insert(item[it])
-                }
+            item = db?.playDao()?.getAll() as ArrayList<Play>
             mAdpater.notifyDataSetChanged()
             Toast.makeText(this, "초기화되었습니다.",Toast.LENGTH_SHORT).show()
         }
-
     }
 
     fun showPlus(){
