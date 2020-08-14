@@ -21,6 +21,10 @@ import kotlinx.android.synthetic.main.filter_layout.*
 import java.util.*
 
 class HomeActivity : AppCompatActivity() {
+    companion object
+    {
+        lateinit var pref: PreferenceUtil
+    }
     var indoor:Boolean = false
     var outdoor:Boolean = false
     var free:Boolean = false
@@ -30,6 +34,7 @@ class HomeActivity : AppCompatActivity() {
     var active:Boolean = false
     var inactive:Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
+        pref = PreferenceUtil(applicationContext)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
