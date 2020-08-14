@@ -51,7 +51,7 @@ class PlayListActivity : AppCompatActivity() {
 
             val checkedItem = listView.checkedItemPositions
 
-            if(mAdpater.count-1 == item.size)
+            if((mAdpater.count downTo(0)).filter{checkedItem.get(it)}.size == item.size)
             {
                 Toast.makeText(this,"놀이 목록에는 놀이가 한 개 이상 존재해야 합니다.",Toast.LENGTH_SHORT).show()
             }
