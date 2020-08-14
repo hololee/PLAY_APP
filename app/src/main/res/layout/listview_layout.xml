@@ -18,6 +18,8 @@
         android:layout_alignParentLeft="true"
         android:focusable="false"
         android:clickable="false"
+        android:buttonTint="#000000"
+        
         />
 
 
