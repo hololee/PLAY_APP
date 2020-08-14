@@ -71,10 +71,10 @@ class PlayListActivity : AppCompatActivity() {
         val reset = findViewById<ImageButton>(R.id.reset_btn)
         reset.setOnClickListener()
         {
-            db = null
+            PlayDatabase.destroyInstance()
             db = PlayDatabase.getInstance(this)
             item.clear()
-            item = db?.playDao()?.getAll() as ArrayList<Play>
+            item.addAll(db?.playDao()?.getAll() as ArrayList<Play>)
             mAdpater.notifyDataSetChanged()
             Toast.makeText(this, "초기화되었습니다.",Toast.LENGTH_SHORT).show()
         }
