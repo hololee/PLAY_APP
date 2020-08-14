@@ -95,6 +95,8 @@
         android:layout_height="60dp"
         android:layout_alignRight="@id/sound"
         android:layout_alignBottom="@id/sound"
-        android:switchMinWidth="60dp" />
+        android:switchMinWidth="60dp"
+        android:thumbTint="#000000"
+        android:trackTint="#000000" />
 
 </RelativeLayout>
