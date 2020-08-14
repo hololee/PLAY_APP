@@ -25,19 +25,10 @@ class HomeActivity : AppCompatActivity() {
     {
         lateinit var pref: PreferenceUtil
     }
-    var indoor:Boolean = false
-    var outdoor:Boolean = false
-    var free:Boolean = false
-    var pay:Boolean = false
-    var alone:Boolean = false
-    var friend:Boolean = false
-    var active:Boolean = false
-    var inactive:Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         pref = PreferenceUtil(applicationContext)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
         val db: PlayDatabase ?= PlayDatabase.getInstance(this)
         var plays:List<Play>?
 
@@ -91,6 +82,7 @@ class HomeActivity : AppCompatActivity() {
         finish_select_button.setOnClickListener{
             alertDialog.cancel()
         }
+
         fun buttonSelected(id:Int){
             val btn = view.findViewById<Button>(id)
             val indoorButton = view.findViewById<Button>(R.id.indoor_button)
@@ -101,40 +93,41 @@ class HomeActivity : AppCompatActivity() {
             val friendButton = view.findViewById<Button>(R.id.friend_button)
             val activeButton = view.findViewById<Button>(R.id.active_button)
             val inactiveButton = view.findViewById<Button>(R.id.inactive_button)
+
             when(btn){
-                indoorButton -> btn.isSelected = indoor
-                outdoorButton -> btn.isSelected = outdoor
-                freeButton -> btn.isSelected = free
-                payButton -> btn.isSelected = pay
-                aloneButton -> btn.isSelected = alone
-                friendButton -> btn.isSelected = friend
-                activeButton -> btn.isSelected = active
-                inactiveButton -> btn.isSelected = inactive
+                indoorButton -> btn.isSelected = pref.getBoolean("indoor",false)
+                outdoorButton -> btn.isSelected = pref.getBoolean("outdoor",false)
+                freeButton -> btn.isSelected = pref.getBoolean("free",false)
+                payButton -> btn.isSelected = pref.getBoolean("pay",false)
+                aloneButton -> btn.isSelected = pref.getBoolean("alone",false)
+                friendButton -> btn.isSelected = pref.getBoolean("friend",false)
+                activeButton -> btn.isSelected = pref.getBoolean("active",false)
+                inactiveButton -> btn.isSelected = pref.getBoolean("inactive",false)
             }
             btn.setOnClickListener{
                 if(btn.isSelected==false){
                     btn.isSelected = true
                     when(btn){
-                        indoorButton -> indoor = true
-                        outdoorButton -> outdoor = true
-                        freeButton -> free = true
-                        payButton -> pay = true
-                        aloneButton -> alone = true
-                        friendButton -> friend = true
-                        activeButton -> active = true
-                        inactiveButton -> inactive = true
+                        indoorButton -> pref.setBoolean("indoor",this,true)
+                        outdoorButton -> pref.setBoolean("outdoor",this,true)
+                        freeButton -> pref.setBoolean("free",this,true)
+                        payButton -> pref.setBoolean("pay",this,true)
+                        aloneButton -> pref.setBoolean("alone",this,true)
+                        friendButton -> pref.setBoolean("friend",this,true)
+                        activeButton -> pref.setBoolean("active",this,true)
+                        inactiveButton -> pref.setBoolean("inactive",this,true)
                     }
                 }else{
                     btn.isSelected = false
                     when(btn){
-                        indoorButton -> indoor = false
-                        outdoorButton -> outdoor = false
-                        freeButton -> free = false
-                        payButton -> pay = false
-                        aloneButton -> alone = false
-                        friendButton -> friend = false
-                        activeButton -> active = false
-                        inactiveButton -> inactive = false
+                        indoorButton -> pref.setBoolean("indoor",this,false)
+                        outdoorButton -> pref.setBoolean("outdoor",this,false)
+                        freeButton -> pref.setBoolean("free",this,false)
+                        payButton -> pref.setBoolean("pay",this,false)
+                        aloneButton -> pref.setBoolean("alone",this,false)
+                        friendButton -> pref.setBoolean("friend",this,false)
+                        activeButton -> pref.setBoolean("active",this,false)
+                        inactiveButton -> pref.setBoolean("inactive",this,false)
                     }
                 }
             }
@@ -150,6 +143,7 @@ class HomeActivity : AppCompatActivity() {
         buttonSelected(R.id.inactive_button)
         alertDialog.setView(view)
         alertDialog.show()
+
     }
 
 }
