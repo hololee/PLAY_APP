@@ -71,6 +71,7 @@ class PlayListActivity : AppCompatActivity() {
         val reset = findViewById<ImageButton>(R.id.reset_btn)
         reset.setOnClickListener()
         {
+            db = null
             db = PlayDatabase.getInstance(this)
             item.clear()
             item = db?.playDao()?.getAll() as ArrayList<Play>
