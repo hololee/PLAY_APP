@@ -1,5 +1,6 @@
 package com.example.play_app
 
+
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -13,7 +14,6 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
 import com.example.play_app.db.PlayDatabase
 import com.example.play_app.db.entity.Play
-
 public class MyCustomAdapter(context: Context,item : ArrayList<Play>?) : BaseAdapter() {
     private val mContext: Context
     private val mitem = item
@@ -30,11 +30,13 @@ public class MyCustomAdapter(context: Context,item : ArrayList<Play>?) : BaseAda
 
     override fun getView(position: Int, view: View?, viewgroup: ViewGroup?): View {
 
+
         val layoutInflater = LayoutInflater.from(mContext)
         val listlayout = layoutInflater.inflate(R.layout.listview_layout, viewgroup, false)
 
         val nameTextView = listlayout.findViewById<TextView>(R.id.list_item)
         nameTextView.text = mitem?.get(position)?.play_name
+
 
         val info = listlayout.findViewById<ImageButton>(R.id.btn_info)
         info?.setOnClickListener {

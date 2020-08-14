@@ -20,8 +20,8 @@ class PlayListActivity : AppCompatActivity() {
     var num_current:Boolean = false
     var act_current:Boolean = false
 
-    val db: PlayDatabase ?= PlayDatabase.getInstance(this)
-    val item = db?.playDao()?.getAll() as ArrayList<Play>
+    var db: PlayDatabase ?= PlayDatabase.getInstance(this)
+    var item = db?.playDao()?.getAll() as ArrayList<Play>
 
     private lateinit var mAdpater : MyCustomAdapter
 
@@ -42,27 +42,43 @@ class PlayListActivity : AppCompatActivity() {
         val listView = findViewById<ListView>(R.id.listView)
         mAdpater = MyCustomAdapter(this, item)
         listView.adapter = mAdpater
-
         listView.choiceMode = ListView.CHOICE_MODE_MULTIPLE
 
         val delbtn = findViewById<ImageButton>(R.id.list_del_btn)
+
         delbtn.setOnClickListener()
         {
+
             val checkedItem = listView.checkedItemPositions
 
-            (mAdpater.count downTo 0)
-                .filter { checkedItem.get(it) }
-                .forEach {
-                    db?.playDao()?.delete(item.get(it))
-                    item.removeAt(it)
-                }
-
-            listView.clearChoices()
-            mAdpater.notifyDataSetChanged()
+            if(mAdpater.count-1 == item.size)
+            {
+                Toast.makeText(this,"놀이 목록에는 놀이가 한 개 이상 존재해야 합니다.",Toast.LENGTH_SHORT).show()
+            }
+            else
+            {
+                (mAdpater.count downTo 0)
+                    .filter { checkedItem.get(it) }
+                    .forEach {
+                        db?.playDao()?.delete(item.get(it))
+                        item.removeAt(it) }
+                listView.clearChoices()
+                mAdpater.notifyDataSetChanged()
+                Toast.makeText(this,"삭제되었습니다.",Toast.LENGTH_SHORT).show()
+            }
         }
 
+        val reset = findViewById<ImageButton>(R.id.reset_btn)
+        reset.setOnClickListener()
+        {
+            PlayDatabase.destroyInstance()
+            db = PlayDatabase.getInstance(this)
+            item.clear()
+            item.addAll(db?.playDao()?.getAll() as ArrayList<Play>)
+            mAdpater.notifyDataSetChanged()
+            Toast.makeText(this, "초기화되었습니다.",Toast.LENGTH_SHORT).show()
+        }
     }
-
 
     fun showPlus(){
         val inflater = getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -140,6 +156,7 @@ class PlayListActivity : AppCompatActivity() {
         close_button.setOnClickListener {
             alertDialog.cancel()
         }
+
         val save = view.findViewById<Button>(R.id.save_button)
         save.setOnClickListener() {
             val addPlayName = view.findViewById<EditText>(R.id.add_playname)
@@ -147,8 +164,9 @@ class PlayListActivity : AppCompatActivity() {
             db?.playDao()?.insert(item.last())
             mAdpater.notifyDataSetChanged()
             alertDialog.cancel()
-
+            Toast.makeText(this,"추가되었습니다.",Toast.LENGTH_SHORT).show()
         }
+
         alertDialog.setView(view)
         alertDialog.show()
         alertDialog.window?.setLayout(1000, 1400)
