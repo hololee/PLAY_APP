@@ -33,8 +33,6 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        var db: PlayDatabase ?= PlayDatabase.getInstance(this)
-
         setting.setOnClickListener {
             val intent = Intent(this,SettingsActivity::class.java)
             startActivity(intent)
@@ -70,7 +68,7 @@ class HomeActivity : AppCompatActivity() {
                     active = "활동적"
                     inactive = "비활동적"
                 }
-                db = PlayDatabase.getInstance(this)
+                val db:PlayDatabase ?= PlayDatabase.getInstance(this)
                 val result:Play? = db?.playDao()?.getResult(indoor,outdoor,free,pay,alone,friend,active,inactive)
                 if(result!=null) showResult(result)
                 else Toast.makeText(this,"조건에 해당하는 놀이가 없습니다.",Toast.LENGTH_SHORT).show()
