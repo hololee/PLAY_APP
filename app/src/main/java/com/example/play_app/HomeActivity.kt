@@ -9,16 +9,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.example.play_app.db.PlayDatabase
 import com.example.play_app.db.entity.Play
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.filter_layout.*
-import java.util.*
 
 class HomeActivity : AppCompatActivity() {
     companion object
@@ -37,8 +32,8 @@ class HomeActivity : AppCompatActivity() {
         pref.setBoolean("inactive",this,false)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        val db: PlayDatabase ?= PlayDatabase.getInstance(this)
-        var plays:List<Play>?
+
+        var db: PlayDatabase ?= PlayDatabase.getInstance(this)
 
         setting.setOnClickListener {
             val intent = Intent(this,SettingsActivity::class.java)
@@ -51,7 +46,6 @@ class HomeActivity : AppCompatActivity() {
             val rotate_animation = AnimationUtils.loadAnimation(this,R.anim.rotate)
             roulette.startAnimation(rotate_animation)
             Handler().postDelayed({
-                //plays = db?.playDao()?.getAll()
                 var indoor = if(pref.getBoolean("indoor",false)) "실내" else null
                 var outdoor = if(pref.getBoolean("outdoor",false)) "실외" else null
                 var free = if(pref.getBoolean("free",false)) "무료" else null
@@ -76,9 +70,10 @@ class HomeActivity : AppCompatActivity() {
                     active = "활동적"
                     inactive = "비활동적"
                 }
-
+                db = PlayDatabase.getInstance(this)
                 val result:Play? = db?.playDao()?.getResult(indoor,outdoor,free,pay,alone,friend,active,inactive)
-                showResult(result)
+                if(result!=null) showResult(result)
+                else Toast.makeText(this,"조건에 해당하는 놀이가 없습니다.",Toast.LENGTH_SHORT).show()
             },2500)
 
         }
