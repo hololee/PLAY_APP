@@ -1,6 +1,5 @@
 package com.example.play_app
 
-
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -14,6 +13,7 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
 import com.example.play_app.db.PlayDatabase
 import com.example.play_app.db.entity.Play
+
 public class MyCustomAdapter(context: Context,item : ArrayList<Play>?) : BaseAdapter() {
     private val mContext: Context
     private val mitem = item
