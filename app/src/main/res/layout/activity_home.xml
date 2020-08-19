@@ -29,7 +29,8 @@
         android:paddingStart="10dp"
         android:paddingTop="10dp"
         android:text="뭐하고 놀지?"
-        android:textColor="#FFFFFF"
+        android:fontFamily="@font/stardust"
+        android:textColor="@color/darkBlue"
         android:textSize="38sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="0dp"
@@ -41,6 +42,7 @@
 
         <Button
             android:id="@+id/start_button"
+            android:fontFamily="@font/system_font"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
