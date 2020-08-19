@@ -2,17 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/round_border_line"
-    android:orientation="vertical">
+    android:background="@drawable/popup_color"
+    android:orientation="vertical" >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/borderline_bottom"
+        android:background="@drawable/borderline_bottom_white"
         android:text="필터"
+        android:fontFamily="@font/system_font"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="50dp"
         android:textStyle="bold" />
 
@@ -22,7 +23,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
         android:text="장소"
-        android:textColor="#000000"
+        android:fontFamily="@font/system_font"
+        android:textColor="#FFFFFF"
         android:textSize="25dp" />
 
     <LinearLayout
@@ -39,6 +41,8 @@
             android:layout_marginStart="30dp"
             android:background="@drawable/round_button"
             android:text="실내"
+            android:fontFamily="@font/system_font"
+            android:textColor="#FFFFFF"
             android:textSize="25dp" />
 
         <Button
@@ -48,6 +52,8 @@
             android:layout_marginStart="70dp"
             android:background="@drawable/round_button"
             android:text="실외"
+            android:fontFamily="@font/system_font"
+            android:textColor="#FFFFFF"
             android:textSize="25dp" />
 
     </LinearLayout>
@@ -58,7 +64,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
         android:text="비용"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="25dp" />
 
     <LinearLayout
@@ -75,6 +81,8 @@
             android:layout_marginStart="30dp"
             android:background="@drawable/round_button"
             android:text="무료"
+            android:fontFamily="@font/system_font"
+            android:textColor="#FFFFFF"
             android:textSize="25dp" />
 
         <Button
@@ -84,6 +92,8 @@
             android:layout_marginStart="70dp"
             android:background="@drawable/round_button"
             android:text="유료"
+            android:fontFamily="@font/system_font"
+            android:textColor="#FFFFFF"
             android:textSize="25dp" />
 
     </LinearLayout>
@@ -94,7 +104,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
         android:text="인원"
-        android:textColor="#000000"
+        android:fontFamily="@font/system_font"
+        android:textColor="#FFFFFF"
         android:textSize="25dp" />
 
     <LinearLayout
@@ -111,6 +122,8 @@
             android:layout_marginStart="30dp"
             android:background="@drawable/round_button"
             android:text="혼자가능"
+            android:fontFamily="@font/system_font"
+            android:textColor="#FFFFFF"
             android:textSize="25dp" />
 
         <Button
@@ -120,6 +133,8 @@
             android:layout_marginStart="50dp"
             android:background="@drawable/round_button"
             android:text="친구필요"
+            android:fontFamily="@font/system_font"
+            android:textColor="#FFFFFF"
             android:textSize="25dp" />
 
     </LinearLayout>
@@ -130,7 +145,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
         android:text="활동성"
-        android:textColor="#000000"
+        android:fontFamily="@font/system_font"
+        android:textColor="#FFFFFF"
         android:textSize="25dp" />
 
     <LinearLayout
@@ -147,6 +163,8 @@
             android:layout_marginStart="30dp"
             android:background="@drawable/round_button"
             android:text="활동적"
+            android:fontFamily="@font/system_font"
+            android:textColor="#FFFFFF"
             android:textSize="25dp" />
 
         <Button
@@ -156,6 +174,8 @@
             android:layout_marginStart="70dp"
             android:background="@drawable/round_button"
             android:text="비활동적"
+            android:fontFamily="@font/system_font"
+            android:textColor="#FFFFFF"
             android:textSize="25dp" />
 
     </LinearLayout>
@@ -169,6 +189,8 @@
         android:layout_marginBottom="50dp"
         android:background="@drawable/round_button"
         android:text="선택완료"
+        android:fontFamily="@font/system_font"
+        android:textColor="#FFFFFF"
         android:textSize="25dp" />
 
 

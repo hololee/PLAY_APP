@@ -24,6 +24,7 @@
         android:background="@drawable/borderline_bottom"
         android:gravity="center"
         android:text="설정"
+        android:fontFamily="@font/system_font"
         android:textColor="#000000"
         android:textSize="30sp" />
 
@@ -36,6 +37,7 @@
         android:gravity="center_vertical"
         android:scaleType="fitEnd"
         android:text="  소리"
+        android:fontFamily="@font/system_font"
         android:textColor="#000000"
         android:textSize="30sp" />
 
@@ -47,6 +49,7 @@
         android:background="@drawable/border_line"
         android:gravity="center_vertical"
         android:text="  놀이 목록"
+        android:fontFamily="@font/system_font"
         android:textColor="#000000"
         android:textSize="30sp" />
 
@@ -86,6 +89,7 @@
         android:background="@drawable/border_line"
         android:gravity="center_vertical"
         android:text="  앱 정보"
+        android:fontFamily="@font/system_font"
         android:textColor="#000000"
         android:textSize="30sp" />
 
@@ -96,7 +100,7 @@
         android:layout_alignRight="@id/sound"
         android:layout_alignBottom="@id/sound"
         android:switchMinWidth="60dp"
-        android:thumbTint="#000000"
-        android:trackTint="#000000" />
+        android:thumbTint="@color/darkBlue"
+        android:trackTint="@color/darkBlue" />
 
 </RelativeLayout>
