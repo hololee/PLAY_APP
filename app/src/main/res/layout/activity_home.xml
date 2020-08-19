@@ -47,7 +47,11 @@
             android:layout_margin="170dp"
             android:width="110dp"
             android:height="85dp"
-            android:background="#00ff0000"/>
+            android:background="#00ff0000"
+            android:text="START"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/roulette"
