@@ -44,7 +44,7 @@
         android:text="장소"
         android:fontFamily="@font/system_font"
         android:textColor="#ffffff"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/place_info"
@@ -55,7 +55,7 @@
         android:layout_marginRight="30dp"
         android:background="#00ff0000"
         android:textColor="#BFBBBB"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@id/cost"
@@ -67,7 +67,7 @@
         android:text="비용"
         android:fontFamily="@font/system_font"
         android:textColor="#ffffff"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/cost_info"
@@ -79,7 +79,7 @@
         android:layout_marginRight="30dp"
         android:background="#00ff0000"
         android:textColor="#BFBBBB"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@id/num"
@@ -91,7 +91,7 @@
         android:text="인원"
         android:fontFamily="@font/system_font"
         android:textColor="#ffffff"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/num_info"
@@ -103,7 +103,7 @@
         android:layout_marginRight="30dp"
         android:background="#00ff0000"
         android:textColor="#BFBBBB"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@id/act"
@@ -115,7 +115,7 @@
         android:text="활동성"
         android:fontFamily="@font/system_font"
         android:textColor="#ffffff"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/act_info"
@@ -127,7 +127,7 @@
         android:layout_marginRight="30dp"
         android:background="#00ff0000"
         android:textColor="#BFBBBB"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/modify_button"
@@ -139,10 +139,8 @@
         android:background="@drawable/round_button"
         android:text="수정"
         android:fontFamily="@font/system_font"
-        android:textSize="25dp"
         android:textColor="#FFFFFF"
-        />
-
+        android:textSize="25sp" />
 
 </RelativeLayout>
 

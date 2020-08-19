@@ -14,7 +14,7 @@
         android:gravity="center"
         android:fontFamily="@font/system_font"
         android:textColor="#FFFFFF"
-        android:textSize="50dp" />
+        android:textSize="50sp" />
 
     <ImageButton
         android:id="@+id/close"

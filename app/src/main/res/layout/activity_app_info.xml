@@ -37,7 +37,7 @@
         android:text="뭐하고 놀지 랜덤으로 알려주는 앱입니다."
         android:fontFamily="@font/system_font"
         android:textColor="#000000"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
