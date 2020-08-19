@@ -20,9 +20,6 @@ class PlayListActivity : AppCompatActivity() {
     var num_current:Boolean = false
     var act_current:Boolean = false
 
-    var db: PlayDatabase ?= PlayDatabase.getInstance(this)
-    var item = db?.playDao()?.getAll() as ArrayList<Play>
-
     private lateinit var mAdpater : MyCustomAdapter
 
     override fun onCreate(savedInstanceState: Bundle?)
@@ -30,17 +27,20 @@ class PlayListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_list)
 
+        var db: PlayDatabase ?= PlayDatabase.getInstance(this)
+        var item = db?.playDao()?.getAll() as ArrayList<Play>
+
         play_list_back_button.setOnClickListener {
             finish()
         }
       
         val plus = findViewById<ImageButton>(R.id.list_add_btn)
         plus.setOnClickListener {
-            showPlus()
+            showPlus(db!!,item)
         }
 
         val listView = findViewById<ListView>(R.id.listView)
-        mAdpater = MyCustomAdapter(this, item)
+        mAdpater = MyCustomAdapter(this, item, db!!)
         listView.adapter = mAdpater
         listView.choiceMode = ListView.CHOICE_MODE_MULTIPLE
 
@@ -80,7 +80,7 @@ class PlayListActivity : AppCompatActivity() {
         }
     }
 
-    fun showPlus(){
+    fun showPlus(db:PlayDatabase,item:ArrayList<Play>){
         val inflater = getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.add_popup_layout,null)
         val place_btn: Button = view.findViewById<Button>(R.id.place_button)

@@ -1,6 +1,5 @@
 package com.example.play_app
 
-
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -14,9 +13,11 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
 import com.example.play_app.db.PlayDatabase
 import com.example.play_app.db.entity.Play
-public class MyCustomAdapter(context: Context,item : ArrayList<Play>?) : BaseAdapter() {
+
+public class MyCustomAdapter(context: Context,item : ArrayList<Play>?,db:PlayDatabase) : BaseAdapter() {
     private val mContext: Context
     private val mitem = item
+    private val mdb = db
 
     init {
         mContext = context
@@ -50,7 +51,6 @@ public class MyCustomAdapter(context: Context,item : ArrayList<Play>?) : BaseAda
 
         val inflater = LayoutInflater.from(mContext)
         val view = inflater.inflate(R.layout.play_list_check_layout,null)
-        val db:PlayDatabase ?= PlayDatabase.getInstance(mContext)
         val playName :TextView = view.findViewById<TextView>(R.id.title)
         playName.setText(item?.play_name)
         val placeInfoButton: Button = view.findViewById<Button>(R.id.place_info)
@@ -94,7 +94,8 @@ public class MyCustomAdapter(context: Context,item : ArrayList<Play>?) : BaseAda
         val modifyButton:Button = view.findViewById<Button>(R.id.modify_button)
         modifyButton.setOnClickListener{
             mitem?.set(position,Play(item!!.play_id,item.play_name,placeInfoButton.text.toString(),costInfoButton.text.toString(),numInfoButton.text.toString(),actInfoButton.text.toString()))
-            db?.playDao()?.update(item!!)
+            mdb.playDao().update(mitem!!.get(position))
+            println(mdb.playDao().getAll().get(position))
             this.notifyDataSetChanged()
             alertDialog.cancel()
         }
