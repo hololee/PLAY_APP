@@ -2,7 +2,6 @@ package com.example.play_app
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
@@ -10,16 +9,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.example.play_app.db.PlayDatabase
 import com.example.play_app.db.entity.Play
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.filter_layout.*
-import java.util.*
 
 class HomeActivity : AppCompatActivity() {
     companion object
@@ -28,10 +22,16 @@ class HomeActivity : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         pref = PreferenceUtil(applicationContext)
+        pref.setBoolean("indoor",this,false)
+        pref.setBoolean("outdoor",this,false)
+        pref.setBoolean("free",this,false)
+        pref.setBoolean("pay",this,false)
+        pref.setBoolean("alone",this,false)
+        pref.setBoolean("friend",this,false)
+        pref.setBoolean("active",this,false)
+        pref.setBoolean("inactive",this,false)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        val db: PlayDatabase ?= PlayDatabase.getInstance(this)
-        var plays:List<Play>?
 
         setting.setOnClickListener {
             val intent = Intent(this,SettingsActivity::class.java)
@@ -44,8 +44,34 @@ class HomeActivity : AppCompatActivity() {
             val rotate_animation = AnimationUtils.loadAnimation(this,R.anim.rotate)
             roulette.startAnimation(rotate_animation)
             Handler().postDelayed({
-                plays = db?.playDao()?.getAll()
-                showResult(plays)
+                var indoor = if(pref.getBoolean("indoor",false)) "실내" else null
+                var outdoor = if(pref.getBoolean("outdoor",false)) "실외" else null
+                var free = if(pref.getBoolean("free",false)) "무료" else null
+                var pay = if(pref.getBoolean("pay",false)) "유료" else null
+                var alone = if(pref.getBoolean("alone",false)) "혼자가능" else null
+                var friend = if(pref.getBoolean("friend",false)) "친구필요" else null
+                var active = if(pref.getBoolean("active",false)) "활동적" else null
+                var inactive = if(pref.getBoolean("inactive",false)) "비활동적" else null
+                if(indoor==null && outdoor==null){
+                    indoor = "실내"
+                    outdoor = "실외"
+                }
+                if(free==null && pay==null){
+                    free = "무료"
+                    pay = "유료"
+                }
+                if(alone==null && friend==null){
+                    alone = "혼자가능"
+                    friend = "친구필요"
+                }
+                if(active==null && inactive==null){
+                    active = "활동적"
+                    inactive = "비활동적"
+                }
+                val db:PlayDatabase ?= PlayDatabase.getInstance(this)
+                val result:Play? = db?.playDao()?.getResult(indoor,outdoor,free,pay,alone,friend,active,inactive)
+                if(result!=null) showResult(result)
+                else Toast.makeText(this,"조건에 해당하는 놀이가 없습니다.",Toast.LENGTH_SHORT).show()
             },2500)
 
         }
@@ -56,13 +82,11 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-    fun showResult(plays:List<Play>?){
+    fun showResult(result:Play?){
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.popup_layout,null)
         val textView: TextView = view.findViewById<TextView>(R.id.result)
-        val num = Random().nextInt(plays!!.size)
-        val result = plays?.get(num).play_name
-        textView.text = result.toString()
+        textView.text = result?.play_name
         val alertDialog = AlertDialog.Builder(this).setCancelable(false).create()
         alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val close_button = view.findViewById<ImageButton>(R.id.close)

@@ -20,9 +20,6 @@ class PlayListActivity : AppCompatActivity() {
     var num_current:Boolean = false
     var act_current:Boolean = false
 
-    var db: PlayDatabase ?= PlayDatabase.getInstance(this)
-    var item = db?.playDao()?.getAll() as ArrayList<Play>
-
     private lateinit var mAdpater : MyCustomAdapter
 
     override fun onCreate(savedInstanceState: Bundle?)
@@ -30,17 +27,20 @@ class PlayListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_list)
 
+        var db: PlayDatabase ?= PlayDatabase.getInstance(this)
+        var item = db?.playDao()?.getAll() as ArrayList<Play>
+
         play_list_back_button.setOnClickListener {
             finish()
         }
       
         val plus = findViewById<ImageButton>(R.id.list_add_btn)
         plus.setOnClickListener {
-            showPlus()
+            showPlus(db!!,item)
         }
 
         val listView = findViewById<ListView>(R.id.listView)
-        mAdpater = MyCustomAdapter(this, item)
+        mAdpater = MyCustomAdapter(this, item, db!!)
         listView.adapter = mAdpater
         listView.choiceMode = ListView.CHOICE_MODE_MULTIPLE
 
@@ -51,7 +51,7 @@ class PlayListActivity : AppCompatActivity() {
 
             val checkedItem = listView.checkedItemPositions
 
-            if(mAdpater.count-1 == item.size)
+            if((mAdpater.count downTo(0)).filter{checkedItem.get(it)}.size == item.size)
             {
                 Toast.makeText(this,"놀이 목록에는 놀이가 한 개 이상 존재해야 합니다.",Toast.LENGTH_SHORT).show()
             }
@@ -71,16 +71,16 @@ class PlayListActivity : AppCompatActivity() {
         val reset = findViewById<ImageButton>(R.id.reset_btn)
         reset.setOnClickListener()
         {
+            PlayDatabase.destroyInstance()
             db = PlayDatabase.getInstance(this)
             item.clear()
-            mAdpater.notifyDataSetChanged()
-            item = db?.playDao()?.getAll() as ArrayList<Play>
+            item.addAll(db?.playDao()?.getAll() as ArrayList<Play>)
             mAdpater.notifyDataSetChanged()
             Toast.makeText(this, "초기화되었습니다.",Toast.LENGTH_SHORT).show()
         }
     }
 
-    fun showPlus(){
+    fun showPlus(db:PlayDatabase,item:ArrayList<Play>){
         val inflater = getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.add_popup_layout,null)
         val place_btn: Button = view.findViewById<Button>(R.id.place_button)

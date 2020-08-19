@@ -15,6 +15,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:text="추가하기"
+        android:fontFamily="@font/system_font"
         android:textColor="#ffffff"
         android:textSize="50dp"
         android:textStyle="bold" />
@@ -42,6 +43,7 @@
         android:layout_marginEnd="28dp"
         android:background="#8CFFFFFF"
         android:hint="놀이명"
+        android:fontFamily="@font/system_font"
         android:textColor="#000000"
         android:textColorHint="@color/cardview_dark_background"
         android:textSize="20dp" />
@@ -54,7 +56,8 @@
         android:layout_marginStart="37dp"
         android:layout_marginTop="50dp"
         android:text="장소"
-        android:textColor="#000000"
+        android:fontFamily="@font/system_font"
+        android:textColor="#ffffff"
         android:textSize="30dp" />
 
     <Button
@@ -67,6 +70,7 @@
         android:layout_marginRight="50dp"
         android:background="#00ff0000"
         android:text="실내"
+        android:fontFamily="@font/system_font"
         android:textColor="#BFBBBB"
         android:textSize="20dp" />
 
@@ -78,7 +82,8 @@
         android:layout_marginStart="37dp"
         android:layout_marginTop="20dp"
         android:text="비용"
-        android:textColor="#000000"
+        android:fontFamily="@font/system_font"
+        android:textColor="#ffffff"
         android:textSize="30dp" />
 
     <Button
@@ -89,6 +94,7 @@
         android:layout_marginLeft="250dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="50dp"
+        android:fontFamily="@font/system_font"
         android:background="#00ff0000"
         android:text="무료"
         android:textColor="#BFBBBB"
@@ -102,7 +108,8 @@
         android:layout_marginStart="37dp"
         android:layout_marginTop="20dp"
         android:text="인원"
-        android:textColor="#000000"
+        android:fontFamily="@font/system_font"
+        android:textColor="#ffffff"
         android:textSize="30dp" />
 
     <Button
@@ -115,6 +122,7 @@
         android:layout_marginRight="50dp"
         android:background="#00ff0000"
         android:text="혼자가능"
+        android:fontFamily="@font/system_font"
         android:textColor="#BFBBBB"
         android:textSize="20dp" />
 
@@ -126,7 +134,8 @@
         android:layout_marginStart="37dp"
         android:layout_marginTop="20dp"
         android:text="활동성"
-        android:textColor="#000000"
+        android:fontFamily="@font/system_font"
+        android:textColor="#ffffff"
         android:textSize="30dp" />
 
     <Button
@@ -139,6 +148,7 @@
         android:layout_marginRight="50dp"
         android:background="#00ff0000"
         android:text="활동적"
+        android:fontFamily="@font/system_font"
         android:textColor="#BFBBBB"
         android:textSize="20dp" />
 
@@ -151,6 +161,8 @@
         android:layout_marginBottom="30dp"
         android:background="@drawable/round_button"
         android:text="저장"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/system_font"
         android:textSize="25dp" />
 
 
