@@ -9,25 +9,27 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import com.example.play_app.db.PlayDatabase
+import com.example.play_app.db.entity.Play
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.filter_layout.*
-import java.util.*
 
 class HomeActivity : AppCompatActivity() {
-    var indoor:Boolean = false
-    var outdoor:Boolean = false
-    var free:Boolean = false
-    var pay:Boolean = false
-    var alone:Boolean = false
-    var friend:Boolean = false
-    var active:Boolean = false
-    var inactive:Boolean = false
+    companion object
+    {
+        lateinit var pref: PreferenceUtil
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
+        pref = PreferenceUtil(applicationContext)
+        pref.setBoolean("indoor",this,false)
+        pref.setBoolean("outdoor",this,false)
+        pref.setBoolean("free",this,false)
+        pref.setBoolean("pay",this,false)
+        pref.setBoolean("alone",this,false)
+        pref.setBoolean("friend",this,false)
+        pref.setBoolean("active",this,false)
+        pref.setBoolean("inactive",this,false)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
@@ -42,7 +44,34 @@ class HomeActivity : AppCompatActivity() {
             val rotate_animation = AnimationUtils.loadAnimation(this,R.anim.rotate)
             roulette.startAnimation(rotate_animation)
             Handler().postDelayed({
-                showResult()
+                var indoor = if(pref.getBoolean("indoor",false)) "실내" else null
+                var outdoor = if(pref.getBoolean("outdoor",false)) "실외" else null
+                var free = if(pref.getBoolean("free",false)) "무료" else null
+                var pay = if(pref.getBoolean("pay",false)) "유료" else null
+                var alone = if(pref.getBoolean("alone",false)) "혼자가능" else null
+                var friend = if(pref.getBoolean("friend",false)) "친구필요" else null
+                var active = if(pref.getBoolean("active",false)) "활동적" else null
+                var inactive = if(pref.getBoolean("inactive",false)) "비활동적" else null
+                if(indoor==null && outdoor==null){
+                    indoor = "실내"
+                    outdoor = "실외"
+                }
+                if(free==null && pay==null){
+                    free = "무료"
+                    pay = "유료"
+                }
+                if(alone==null && friend==null){
+                    alone = "혼자가능"
+                    friend = "친구필요"
+                }
+                if(active==null && inactive==null){
+                    active = "활동적"
+                    inactive = "비활동적"
+                }
+                val db:PlayDatabase ?= PlayDatabase.getInstance(this)
+                val result:Play? = db?.playDao()?.getResult(indoor,outdoor,free,pay,alone,friend,active,inactive)
+                if(result!=null) showResult(result)
+                else Toast.makeText(this,"조건에 해당하는 놀이가 없습니다.",Toast.LENGTH_SHORT).show()
             },2500)
 
         }
@@ -53,14 +82,11 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-    fun showResult(){
+    fun showResult(result:Play?){
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.popup_layout,null)
         val textView: TextView = view.findViewById<TextView>(R.id.result)
-        val plays = arrayListOf("1일 클래스","PC방","VR카페","계곡가기","공기놀이","공방","궁 가기","노래방","놀이공원","농구","달리기","당구장","동물원","드라마보기","등산","디스코팡팡 타기","딸기게임","땅따먹기","만화카페","바니바니 게임","바다가기","방탈출카페","밸런스게임","번지점프","베이킹하기","보드게임","볼링장","빙고게임","산책하기","셀카찍기","셀프네일하기","손병호게임","쇼핑","수영","스카이다이빙","스케이트장","스쿠버다이빙","스키장 가기","슬라임카페","식물원","썰매장","쎄쎄쎄","아이엠그라운드 게임","암흑카페","야구","영화","오락실","오렌지게임","오목","요리하기","이미지사진 찍기","인생네컷 찍기","장문복게임","전시회","종이접기","진실게임","쪽팔려게임","축구","카드게임","카페투어","컬러링북","클라이밍","클레오파트라 게임","타로","틀린그림찾기","피크닉","피포페인팅","향수 만들기","홍삼게임","화장품 만들기")
-        val num = Random().nextInt(plays.size)
-        val result = plays.get(num)
-        textView.text = result
+        textView.text = result?.play_name
         val alertDialog = AlertDialog.Builder(this).setCancelable(false).create()
         alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val close_button = view.findViewById<ImageButton>(R.id.close)
@@ -81,6 +107,7 @@ class HomeActivity : AppCompatActivity() {
         finish_select_button.setOnClickListener{
             alertDialog.cancel()
         }
+
         fun buttonSelected(id:Int){
             val btn = view.findViewById<Button>(id)
             val indoorButton = view.findViewById<Button>(R.id.indoor_button)
@@ -91,40 +118,41 @@ class HomeActivity : AppCompatActivity() {
             val friendButton = view.findViewById<Button>(R.id.friend_button)
             val activeButton = view.findViewById<Button>(R.id.active_button)
             val inactiveButton = view.findViewById<Button>(R.id.inactive_button)
+
             when(btn){
-                indoorButton -> btn.isSelected = indoor
-                outdoorButton -> btn.isSelected = outdoor
-                freeButton -> btn.isSelected = free
-                payButton -> btn.isSelected = pay
-                aloneButton -> btn.isSelected = alone
-                friendButton -> btn.isSelected = friend
-                activeButton -> btn.isSelected = active
-                inactiveButton -> btn.isSelected = inactive
+                indoorButton -> btn.isSelected = pref.getBoolean("indoor",false)
+                outdoorButton -> btn.isSelected = pref.getBoolean("outdoor",false)
+                freeButton -> btn.isSelected = pref.getBoolean("free",false)
+                payButton -> btn.isSelected = pref.getBoolean("pay",false)
+                aloneButton -> btn.isSelected = pref.getBoolean("alone",false)
+                friendButton -> btn.isSelected = pref.getBoolean("friend",false)
+                activeButton -> btn.isSelected = pref.getBoolean("active",false)
+                inactiveButton -> btn.isSelected = pref.getBoolean("inactive",false)
             }
             btn.setOnClickListener{
                 if(btn.isSelected==false){
                     btn.isSelected = true
                     when(btn){
-                        indoorButton -> indoor = true
-                        outdoorButton -> outdoor = true
-                        freeButton -> free = true
-                        payButton -> pay = true
-                        aloneButton -> alone = true
-                        friendButton -> friend = true
-                        activeButton -> active = true
-                        inactiveButton -> inactive = true
+                        indoorButton -> pref.setBoolean("indoor",this,true)
+                        outdoorButton -> pref.setBoolean("outdoor",this,true)
+                        freeButton -> pref.setBoolean("free",this,true)
+                        payButton -> pref.setBoolean("pay",this,true)
+                        aloneButton -> pref.setBoolean("alone",this,true)
+                        friendButton -> pref.setBoolean("friend",this,true)
+                        activeButton -> pref.setBoolean("active",this,true)
+                        inactiveButton -> pref.setBoolean("inactive",this,true)
                     }
                 }else{
                     btn.isSelected = false
                     when(btn){
-                        indoorButton -> indoor = false
-                        outdoorButton -> outdoor = false
-                        freeButton -> free = false
-                        payButton -> pay = false
-                        aloneButton -> alone = false
-                        friendButton -> friend = false
-                        activeButton -> active = false
-                        inactiveButton -> inactive = false
+                        indoorButton -> pref.setBoolean("indoor",this,false)
+                        outdoorButton -> pref.setBoolean("outdoor",this,false)
+                        freeButton -> pref.setBoolean("free",this,false)
+                        payButton -> pref.setBoolean("pay",this,false)
+                        aloneButton -> pref.setBoolean("alone",this,false)
+                        friendButton -> pref.setBoolean("friend",this,false)
+                        activeButton -> pref.setBoolean("active",this,false)
+                        inactiveButton -> pref.setBoolean("inactive",this,false)
                     }
                 }
             }
@@ -140,6 +168,7 @@ class HomeActivity : AppCompatActivity() {
         buttonSelected(R.id.inactive_button)
         alertDialog.setView(view)
         alertDialog.show()
+
     }
 
 }

@@ -13,7 +13,7 @@
         android:text="필터"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="50dp"
+        android:textSize="50sp"
         android:textStyle="bold" />
 
     <TextView
@@ -23,7 +23,7 @@
         android:layout_marginTop="30dp"
         android:text="장소"
         android:textColor="#000000"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -36,18 +36,19 @@
             android:id="@+id/indoor_button"
             android:layout_width="100dp"
             android:layout_height="50dp"
+            android:layout_marginStart="30dp"
             android:background="@drawable/round_button"
             android:text="실내"
-            android:textSize="25dp" />
+            android:textSize="25sp" />
 
         <Button
             android:id="@+id/outdoor_button"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="70dp"
             android:background="@drawable/round_button"
             android:text="실외"
-            android:textSize="25dp" />
+            android:textSize="25sp" />
 
     </LinearLayout>
 
@@ -58,7 +59,7 @@
         android:layout_marginTop="30dp"
         android:text="비용"
         android:textColor="#000000"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -71,6 +72,7 @@
             android:id="@+id/free_button"
             android:layout_width="100dp"
             android:layout_height="50dp"
+            android:layout_marginStart="30dp"
             android:background="@drawable/round_button"
             android:text="무료"
             android:textSize="25dp" />
@@ -79,7 +81,7 @@
             android:id="@+id/pay_button"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="70dp"
             android:background="@drawable/round_button"
             android:text="유료"
             android:textSize="25dp" />
@@ -93,7 +95,7 @@
         android:layout_marginTop="30dp"
         android:text="인원"
         android:textColor="#000000"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -104,11 +106,12 @@
 
         <Button
             android:id="@+id/alone_button"
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:layout_height="50dp"
+            android:layout_marginStart="30dp"
             android:background="@drawable/round_button"
-            android:text="혼자서"
-            android:textSize="25dp" />
+            android:text="혼자가능"
+            android:textSize="25sp" />
 
         <Button
             android:id="@+id/friend_button"
@@ -116,8 +119,8 @@
             android:layout_height="50dp"
             android:layout_marginStart="50dp"
             android:background="@drawable/round_button"
-            android:text="여럿이서"
-            android:textSize="25dp" />
+            android:text="친구필요"
+            android:textSize="25sp" />
 
     </LinearLayout>
 
@@ -128,7 +131,7 @@
         android:layout_marginTop="30dp"
         android:text="활동성"
         android:textColor="#000000"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -141,18 +144,19 @@
             android:id="@+id/active_button"
             android:layout_width="100dp"
             android:layout_height="50dp"
+            android:layout_marginStart="30dp"
             android:background="@drawable/round_button"
             android:text="활동적"
-            android:textSize="25dp" />
+            android:textSize="25sp" />
 
         <Button
             android:id="@+id/inactive_button"
             android:layout_width="120dp"
             android:layout_height="50dp"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="70dp"
             android:background="@drawable/round_button"
             android:text="비활동적"
-            android:textSize="25dp" />
+            android:textSize="25sp" />
 
     </LinearLayout>
 
@@ -165,7 +169,7 @@
         android:layout_marginBottom="50dp"
         android:background="@drawable/round_button"
         android:text="선택완료"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
 
 
 </LinearLayout>

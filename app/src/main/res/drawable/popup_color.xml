@@ -4,12 +4,6 @@
     android:padding="10dp"
     android:shape="rectangle"
     >
-
-    <gradient
-        android:angle="90"
-        android:endColor="#FBC74A"
-        android:startColor="#FBA569"
-        android:type="linear"
-        />
+    <solid android:color="@color/darkBlue"/>
     <corners android:radius="60dp"/>
 </shape>
