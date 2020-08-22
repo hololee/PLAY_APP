@@ -24,6 +24,7 @@
         android:background="@drawable/borderline_bottom"
         android:gravity="center"
         android:text="설정"
+        android:textStyle="bold"
         android:fontFamily="@font/system_font"
         android:textColor="#000000"
         android:textSize="30sp" />
