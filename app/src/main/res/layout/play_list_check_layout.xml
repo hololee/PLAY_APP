@@ -17,6 +17,7 @@
         android:layout_marginTop="25dp"
         android:gravity="start"
         android:text="놀이 이름"
+        android:fontFamily="@font/system_font"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -41,6 +42,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="150dp"
         android:text="장소"
+        android:fontFamily="@font/system_font"
         android:textColor="#ffffff"
         android:textSize="25sp" />
 
@@ -63,6 +65,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:text="비용"
+        android:fontFamily="@font/system_font"
         android:textColor="#ffffff"
         android:textSize="25sp" />
 
@@ -86,6 +89,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:text="인원"
+        android:fontFamily="@font/system_font"
         android:textColor="#ffffff"
         android:textSize="25sp" />
 
@@ -109,6 +113,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:text="활동성"
+        android:fontFamily="@font/system_font"
         android:textColor="#ffffff"
         android:textSize="25sp" />
 
@@ -133,8 +138,9 @@
         android:layout_marginBottom="30dp"
         android:background="@drawable/round_button"
         android:text="수정"
+        android:fontFamily="@font/system_font"
+        android:textColor="#FFFFFF"
         android:textSize="25sp" />
-
 
 </RelativeLayout>
 

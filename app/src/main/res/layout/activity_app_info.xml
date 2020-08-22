@@ -14,6 +14,8 @@
         android:gravity="center"
         android:background="@drawable/borderline_bottom"
         android:text="앱 정보"
+        android:textStyle="bold"
+        android:fontFamily="@font/system_font"
         android:textColor="#000000"
         android:textSize="30sp" />
 
@@ -30,12 +32,60 @@
     <TextView
         android:id="@+id/appinfo_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/top_tap"
-        android:text="뭐하고 놀지 랜덤으로 알려주는 앱입니다\n"
+        android:layout_marginTop="10dp"
+        android:text=" 뭐하고 놀지 랜덤으로 알려주는 앱입니다."
+        android:fontFamily="@font/system_font"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="23sp" />
 
+    <TextView
+        android:id="@+id/appinfo_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appinfo_main"
+        android:layout_marginTop="10dp"
+        android:text="--------------------------------"
+        android:fontFamily="@font/system_font"
+        android:textColor="#000000"
+        android:textSize="23sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/appinfo_source"
+        android:text="저작권 및 출처 표기"
+        android:fontFamily="@font/system_font"
+        android:textSize="25sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_below="@id/appinfo_line"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="폰트"
+        android:fontFamily="@font/system_font"
+        android:layout_below="@id/appinfo_source"
+        android:textSize="23sp"
+        android:textColor="#000000"
+        android:layout_marginTop="15dp"
+        android:id="@+id/appinfo_fontsource"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="'무료글꼴 고양시 고양일산체' 사용"
+        android:fontFamily="@font/system_font"
+        android:layout_below="@id/appinfo_fontsource"
+        android:id="@+id/fontsource_main"
+        android:textColor="#272727"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        />
     <ImageView
         android:layout_width="49dp"
         android:layout_height="49dp"
