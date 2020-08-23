@@ -3,18 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/popup_color"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="15dp"
         android:background="@drawable/borderline_bottom_white"
-        android:text="필터"
         android:fontFamily="@font/system_font"
+        android:paddingBottom="15dp"
+        android:text="필터"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="50sp"
+        android:textSize="40sp"
         android:textStyle="bold" />
 
     <TextView
@@ -22,8 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:text="장소"
         android:fontFamily="@font/system_font"
+        android:text="장소"
         android:textColor="#FFFFFF"
         android:textSize="25sp" />
 
@@ -40,8 +42,8 @@
             android:layout_height="50dp"
             android:layout_marginStart="30dp"
             android:background="@drawable/round_button"
-            android:text="실내"
             android:fontFamily="@font/system_font"
+            android:text="실내"
             android:textColor="#FFFFFF"
             android:textSize="25sp" />
 
@@ -51,8 +53,8 @@
             android:layout_height="50dp"
             android:layout_marginStart="70dp"
             android:background="@drawable/round_button"
-            android:text="실외"
             android:fontFamily="@font/system_font"
+            android:text="실외"
             android:textColor="#FFFFFF"
             android:textSize="25sp" />
 
@@ -81,8 +83,8 @@
             android:layout_height="50dp"
             android:layout_marginStart="30dp"
             android:background="@drawable/round_button"
-            android:text="무료"
             android:fontFamily="@font/system_font"
+            android:text="무료"
             android:textColor="#FFFFFF"
             android:textSize="25dp" />
 
@@ -92,8 +94,8 @@
             android:layout_height="50dp"
             android:layout_marginStart="70dp"
             android:background="@drawable/round_button"
-            android:text="유료"
             android:fontFamily="@font/system_font"
+            android:text="유료"
             android:textColor="#FFFFFF"
             android:textSize="25dp" />
 
@@ -104,8 +106,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:text="인원"
         android:fontFamily="@font/system_font"
+        android:text="인원"
         android:textColor="#FFFFFF"
         android:textSize="25sp" />
 
@@ -122,8 +124,8 @@
             android:layout_height="50dp"
             android:layout_marginStart="30dp"
             android:background="@drawable/round_button"
-            android:text="혼자가능"
             android:fontFamily="@font/system_font"
+            android:text="혼자가능"
             android:textColor="#FFFFFF"
             android:textSize="25sp" />
 
@@ -133,8 +135,8 @@
             android:layout_height="50dp"
             android:layout_marginStart="50dp"
             android:background="@drawable/round_button"
-            android:text="친구필요"
             android:fontFamily="@font/system_font"
+            android:text="친구필요"
             android:textColor="#FFFFFF"
             android:textSize="25sp" />
 
@@ -145,8 +147,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:text="활동성"
         android:fontFamily="@font/system_font"
+        android:text="활동성"
         android:textColor="#FFFFFF"
         android:textSize="25sp" />
 
@@ -164,8 +166,8 @@
             android:layout_height="50dp"
             android:layout_marginStart="30dp"
             android:background="@drawable/round_button"
-            android:text="활동적"
             android:fontFamily="@font/system_font"
+            android:text="활동적"
             android:textColor="#FFFFFF"
             android:textSize="25sp" />
 
@@ -175,8 +177,8 @@
             android:layout_height="50dp"
             android:layout_marginStart="70dp"
             android:background="@drawable/round_button"
-            android:text="비활동적"
             android:fontFamily="@font/system_font"
+            android:text="비활동적"
             android:textColor="#FFFFFF"
             android:textSize="25sp" />
 
@@ -190,8 +192,8 @@
         android:layout_marginTop="50dp"
         android:layout_marginBottom="50dp"
         android:background="@drawable/round_button"
-        android:text="선택완료"
         android:fontFamily="@font/system_font"
+        android:text="선택완료"
         android:textColor="#FFFFFF"
         android:textSize="25sp" />
 
