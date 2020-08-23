@@ -7,13 +7,16 @@ import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.TypedValue
 import android.view.LayoutInflater
+import android.view.ViewGroup
 import android.view.WindowManager.LayoutParams.*
 import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.example.play_app.db.PlayDatabase
 import com.example.play_app.db.entity.Play
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
@@ -33,6 +36,7 @@ class HomeActivity : AppCompatActivity() {
         pref.setBoolean("inactive",this,false)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
 
         setting.setOnClickListener {
             val intent = Intent(this,SettingsActivity::class.java)
@@ -170,6 +174,20 @@ class HomeActivity : AppCompatActivity() {
         alertDialog.setView(view)
         alertDialog.show()
 
+    }
+    var mBackWait : Long = 0
+    override fun onBackPressed() {
+        if(System.currentTimeMillis() - mBackWait >= 2000) {
+            mBackWait = System.currentTimeMillis()
+            val toast : Toast = Toast.makeText(this,"뒤로가기 버튼을 한번 더 누르면 종료됩니다.",Toast.LENGTH_LONG)
+            val group = toast.view as ViewGroup
+            val msgTextView = group.getChildAt(0) as TextView
+            msgTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP,14f)
+            toast.show()
+        }
+        else {
+            finish()
+        }
     }
 
 }
