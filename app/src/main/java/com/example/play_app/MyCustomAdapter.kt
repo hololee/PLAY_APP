@@ -13,6 +13,7 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
 import com.example.play_app.db.PlayDatabase
 import com.example.play_app.db.entity.Play
+import android.view.WindowManager.LayoutParams.*
 
 public class MyCustomAdapter(context: Context,item : ArrayList<Play>?,db:PlayDatabase) : BaseAdapter() {
     private val mContext: Context
@@ -103,7 +104,7 @@ public class MyCustomAdapter(context: Context,item : ArrayList<Play>?,db:PlayDat
         alertDialog.setView(view)
         alertDialog.show()
         alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        alertDialog.window?.setLayout(1000, 1200)
+        alertDialog.window?.setLayout(WRAP_CONTENT, 1200)
 
     }
 
