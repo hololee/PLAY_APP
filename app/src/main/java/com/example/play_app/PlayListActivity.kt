@@ -170,7 +170,7 @@ class PlayListActivity : AppCompatActivity() {
 
         alertDialog.setView(view)
         alertDialog.show()
-        alertDialog.window?.setLayout(WRAP_CONTENT, 1200)
+        alertDialog.window?.setLayout(WRAP_CONTENT, 1300)
         alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
     }
