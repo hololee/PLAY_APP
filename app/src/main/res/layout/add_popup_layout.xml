@@ -6,22 +6,16 @@
     android:layout_gravity="center"
     android:background="@drawable/popup_color">
 
-    <RelativeLayout
-        android:id="@+id/addplay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="start" />
-
     <TextView
         android:id="@+id/addplaytitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/addplay"
-        android:layout_alignTop="@id/addplay"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="25dp"
-        android:text="추가하기"
         android:fontFamily="@font/system_font"
+        android:text="추가하기"
         android:textColor="#ffffff"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -30,8 +24,8 @@
         android:id="@+id/close"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_alignTop="@id/addplay"
-        android:layout_alignRight="@id/addplay"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="21dp"
         android:layout_marginRight="29dp"
         android:layout_marginBottom="300dp"
@@ -45,11 +39,11 @@
         android:layout_height="40dp"
         android:layout_below="@id/addplaytitle"
         android:layout_marginStart="28dp"
-        android:layout_marginEnd="28dp"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="28dp"
         android:background="#8CFFFFFF"
-        android:hint="놀이명"
         android:fontFamily="@font/system_font"
+        android:hint="놀이명"
         android:textColor="#ffffff"
         android:textColorHint="@color/cardview_dark_background"
         android:textSize="20sp" />
@@ -61,10 +55,10 @@
         android:layout_below="@id/add_playname"
         android:layout_marginStart="37dp"
         android:layout_marginTop="50dp"
-        android:gravity="center_vertical"
-        android:text="장소"
-
         android:fontFamily="@font/system_font"
+        android:gravity="center_vertical"
+
+        android:text="장소"
         android:textColor="#ffffff"
         android:textSize="25sp" />
 
@@ -74,11 +68,11 @@
         android:layout_height="40dp"
         android:layout_below="@id/add_playname"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="30dp"
         android:layout_marginTop="50dp"
+        android:layout_marginRight="30dp"
         android:background="#00ff0000"
-        android:text="실내"
         android:fontFamily="@font/system_font"
+        android:text="실내"
         android:textColor="#BFBBBB"
         android:textSize="25dp" />
 
@@ -86,12 +80,12 @@
         android:id="@+id/cost"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:gravity="center_vertical"
         android:layout_below="@id/place"
         android:layout_marginStart="37dp"
         android:layout_marginTop="28dp"
-        android:text="비용"
         android:fontFamily="@font/system_font"
+        android:gravity="center_vertical"
+        android:text="비용"
         android:textColor="#ffffff"
         android:textSize="25sp" />
 
@@ -100,25 +94,25 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_below="@id/place_button"
+        android:layout_alignTop="@id/cost"
         android:layout_alignParentRight="true"
         android:layout_marginRight="30dp"
-        android:layout_alignTop="@id/cost"
-        android:fontFamily="@font/system_font"
         android:background="#00ff0000"
+        android:fontFamily="@font/system_font"
         android:text="무료"
         android:textColor="#BFBBBB"
         android:textSize="25sp" />
 
     <TextView
         android:id="@+id/num"
-        android:gravity="center_vertical"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_below="@id/cost"
         android:layout_marginStart="37dp"
         android:layout_marginTop="28dp"
-        android:text="인원"
         android:fontFamily="@font/system_font"
+        android:gravity="center_vertical"
+        android:text="인원"
         android:textColor="#ffffff"
         android:textSize="25sp" />
 
@@ -127,12 +121,12 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_below="@id/cost_button"
+        android:layout_alignTop="@id/num"
         android:layout_alignParentRight="true"
         android:layout_marginRight="30dp"
-        android:layout_alignTop="@id/num"
         android:background="#00ff0000"
-        android:text="혼자가능"
         android:fontFamily="@font/system_font"
+        android:text="혼자가능"
         android:textColor="#BFBBBB"
         android:textSize="25sp" />
 
@@ -143,38 +137,43 @@
         android:layout_below="@id/num"
         android:layout_marginStart="37dp"
         android:layout_marginTop="28dp"
-        android:text="활동성"
-        android:gravity="center_vertical"
         android:fontFamily="@font/system_font"
+        android:gravity="center_vertical"
+        android:text="활동성"
         android:textColor="#ffffff"
         android:textSize="25sp" />
-    
-  <Button
+
+    <Button
         android:id="@+id/act_button"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_below="@id/num_button"
+        android:layout_alignTop="@id/act"
         android:layout_alignParentRight="true"
         android:layout_marginRight="30dp"
-        android:layout_alignTop="@id/act"
         android:background="#00ff0000"
-        android:text="활동적"
         android:fontFamily="@font/system_font"
+        android:text="활동적"
         android:textColor="#BFBBBB"
         android:textSize="25sp" />
 
-    <Button
-        android:id="@+id/save_button"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/round_button"
-        android:text="저장"
-        android:textColor="#FFFFFF"
-        android:fontFamily="@font/system_font"
-        android:textSize="25sp"
-        android:layout_marginBottom="30dp" />
+        android:layout_centerHorizontal="true">
 
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/round_button"
+            android:fontFamily="@font/system_font"
+            android:text="저장"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp" />
+
+    </LinearLayout>
 
 </RelativeLayout>
