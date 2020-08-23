@@ -44,6 +44,7 @@
         android:background="#8CFFFFFF"
         android:fontFamily="@font/system_font"
         android:hint="놀이명"
+        android:maxLength="9"
         android:textColor="#ffffff"
         android:textColorHint="@color/cardview_dark_background"
         android:textSize="20sp" />
