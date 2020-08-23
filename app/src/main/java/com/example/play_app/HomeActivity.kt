@@ -92,6 +92,7 @@ class HomeActivity : AppCompatActivity() {
         val view = inflater.inflate(R.layout.popup_layout,null)
         val textView: TextView = view.findViewById<TextView>(R.id.result)
         textView.text = result?.play_name
+        if(textView.text.length>7) textView.textSize = 40F
         val alertDialog = AlertDialog.Builder(this).setCancelable(false).create()
         alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val close_button = view.findViewById<ImageButton>(R.id.close)
