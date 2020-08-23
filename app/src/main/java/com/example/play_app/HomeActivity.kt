@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
+import android.view.WindowManager.LayoutParams.*
 import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
@@ -95,7 +96,7 @@ class HomeActivity : AppCompatActivity() {
         }
         alertDialog.setView(view)
         alertDialog.show()
-        alertDialog.window?.setLayout(1000,800)
+        alertDialog.window?.setLayout(WRAP_CONTENT,750)
     }
 
     fun showFilter(){
