@@ -57,11 +57,13 @@
     <TextView
         android:id="@+id/place"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_below="@id/add_playname"
         android:layout_marginStart="37dp"
         android:layout_marginTop="50dp"
+        android:gravity="center_vertical"
         android:text="장소"
+
         android:fontFamily="@font/system_font"
         android:textColor="#ffffff"
         android:textSize="25sp" />
@@ -83,7 +85,8 @@
     <TextView
         android:id="@+id/cost"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
         android:layout_below="@id/place"
         android:layout_marginStart="37dp"
         android:layout_marginTop="28dp"
@@ -99,8 +102,8 @@
         android:layout_below="@id/place_button"
         android:layout_alignParentRight="true"
         android:layout_marginRight="30dp"
+        android:layout_alignTop="@id/cost"
         android:fontFamily="@font/system_font"
-        android:layout_marginTop="20dp"
         android:background="#00ff0000"
         android:text="무료"
         android:textColor="#BFBBBB"
@@ -108,8 +111,9 @@
 
     <TextView
         android:id="@+id/num"
+        android:gravity="center_vertical"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_below="@id/cost"
         android:layout_marginStart="37dp"
         android:layout_marginTop="28dp"
@@ -125,7 +129,7 @@
         android:layout_below="@id/cost_button"
         android:layout_alignParentRight="true"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_alignTop="@id/num"
         android:background="#00ff0000"
         android:text="혼자가능"
         android:fontFamily="@font/system_font"
@@ -135,11 +139,12 @@
     <TextView
         android:id="@+id/act"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_below="@id/num"
         android:layout_marginStart="37dp"
         android:layout_marginTop="28dp"
         android:text="활동성"
+        android:gravity="center_vertical"
         android:fontFamily="@font/system_font"
         android:textColor="#ffffff"
         android:textSize="25sp" />
@@ -151,7 +156,7 @@
         android:layout_below="@id/num_button"
         android:layout_alignParentRight="true"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_alignTop="@id/act"
         android:background="#00ff0000"
         android:text="활동적"
         android:fontFamily="@font/system_font"
