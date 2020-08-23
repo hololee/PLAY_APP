@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.WindowManager.LayoutParams.*
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
@@ -169,7 +170,7 @@ class PlayListActivity : AppCompatActivity() {
 
         alertDialog.setView(view)
         alertDialog.show()
-        alertDialog.window?.setLayout(1000, 1400)
+        alertDialog.window?.setLayout(WRAP_CONTENT, 1200)
         alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
     }
