@@ -1,0 +1,64 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "3ef166d57ed9e5b90491e3c8eb4eb348",
+    "entities": [
+      {
+        "tableName": "Play",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`play_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `play_name` TEXT, `place` TEXT, `cost` TEXT, `num` TEXT, `act` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "play_id",
+            "columnName": "play_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "play_name",
+            "columnName": "play_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "place",
+            "columnName": "place",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cost",
+            "columnName": "cost",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "num",
+            "columnName": "num",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "act",
+            "columnName": "act",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "play_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3ef166d57ed9e5b90491e3c8eb4eb348')"
+    ]
+  }
+}
