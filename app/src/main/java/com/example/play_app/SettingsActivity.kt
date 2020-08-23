@@ -6,13 +6,26 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : AppCompatActivity() {
-
+    companion object
+    {
+        lateinit var pref: PreferenceUtil
+        var soundOn:Boolean = true
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
+        pref = PreferenceUtil(applicationContext)
+
         settings_back_button.setOnClickListener {
             finish()
+        }
+
+        soundOn = pref.getBoolean("sound",true)
+        switch_sound.isChecked = soundOn
+        switch_sound.setOnClickListener{
+            soundOn = switch_sound.isChecked
+            pref.setBoolean("sound",this,soundOn)
         }
 
         app_info_button.setOnClickListener {

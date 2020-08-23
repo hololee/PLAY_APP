@@ -17,7 +17,6 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.example.play_app.db.PlayDatabase
 import com.example.play_app.db.entity.Play
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
@@ -38,7 +37,6 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-
         setting.setOnClickListener {
             val intent = Intent(this,SettingsActivity::class.java)
             startActivity(intent)
@@ -46,7 +44,7 @@ class HomeActivity : AppCompatActivity() {
 
         start_button.setOnClickListener{
             val mediaPlayer1 = MediaPlayer.create(this,R.raw.popup4)
-            mediaPlayer1.start()
+            if(SettingsActivity.soundOn) mediaPlayer1.start()
             val roulette:ImageView = findViewById<ImageView>(R.id.roulette)
             val rotate_animation = AnimationUtils.loadAnimation(this,R.anim.rotate)
             roulette.startAnimation(rotate_animation)
@@ -98,7 +96,7 @@ class HomeActivity : AppCompatActivity() {
         alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val close_button = view.findViewById<ImageButton>(R.id.close)
         val mediaPlayer2 = MediaPlayer.create(this,R.raw.popup1)
-        mediaPlayer2.start()
+        if(SettingsActivity.soundOn) mediaPlayer2.start()
         close_button.setOnClickListener {
             alertDialog.cancel()
         }
