@@ -183,7 +183,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onBackPressed() {
         if(System.currentTimeMillis() - mBackWait >= 2000) {
             mBackWait = System.currentTimeMillis()
-            val toast : Toast = Toast.makeText(this,"뒤로가기 버튼을 한번 더 누르면 종료됩니다.",Toast.LENGTH_LONG)
+            val toast : Toast = Toast.makeText(this,"뒤로가기 버튼을 한번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT)
             val group = toast.view as ViewGroup
             val msgTextView = group.getChildAt(0) as TextView
             msgTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP,14f)
