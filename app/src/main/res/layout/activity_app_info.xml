@@ -75,6 +75,29 @@
         android:layout_marginTop="10dp"
         android:textSize="15sp"
         />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="효과음"
+        android:fontFamily="@font/system_font"
+        android:layout_below="@id/fontsource_main"
+        android:textSize="23sp"
+        android:textColor="#000000"
+        android:layout_marginTop="15dp"
+        android:id="@+id/appinfo_soundsource"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="www.youtube.com/watch?v=6DSgZq5j_kI"
+        android:fontFamily="@font/system_font"
+        android:layout_below="@id/appinfo_soundsource"
+        android:id="@+id/soundsource_main"
+        android:textColor="#272727"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        />
     <ImageView
         android:layout_width="49dp"
         android:layout_height="49dp"
