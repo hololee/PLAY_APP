@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -44,7 +45,8 @@ class HomeActivity : AppCompatActivity() {
         }
 
         start_button.setOnClickListener{
-
+            val mediaPlayer1 = MediaPlayer.create(this,R.raw.popup4)
+            mediaPlayer1.start()
             val roulette:ImageView = findViewById<ImageView>(R.id.roulette)
             val rotate_animation = AnimationUtils.loadAnimation(this,R.anim.rotate)
             roulette.startAnimation(rotate_animation)
@@ -95,6 +97,8 @@ class HomeActivity : AppCompatActivity() {
         val alertDialog = AlertDialog.Builder(this).setCancelable(false).create()
         alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val close_button = view.findViewById<ImageButton>(R.id.close)
+        val mediaPlayer2 = MediaPlayer.create(this,R.raw.popup1)
+        mediaPlayer2.start()
         close_button.setOnClickListener {
             alertDialog.cancel()
         }

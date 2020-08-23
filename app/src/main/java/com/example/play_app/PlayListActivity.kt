@@ -4,13 +4,18 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.WindowManager.LayoutParams.*
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
 import android.widget.*
+import androidx.core.widget.addTextChangedListener
 import com.example.play_app.db.PlayDatabase
 import com.example.play_app.db.entity.Play
 import kotlinx.android.synthetic.main.activity_play_list.*
@@ -165,7 +170,30 @@ class PlayListActivity : AppCompatActivity() {
             db?.playDao()?.insert(item.last())
             mAdpater.notifyDataSetChanged()
             alertDialog.cancel()
-            Toast.makeText(this,"추가되었습니다.",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@PlayListActivity,"추가되었습니다.",Toast.LENGTH_SHORT).show()
+//            addPlayName.addTextChangedListener(object : TextWatcher {
+//                override fun afterTextChanged(s: Editable?) {
+//                    if(s.toString().toByteArray().size > 9 || s.toString().toByteArray().isEmpty())
+//                    {
+//                        val toast : Toast = Toast.makeText(this@PlayListActivity,"글자는 최대 9자, 최소 1자까지 입력 가능합니다.",Toast.LENGTH_SHORT)
+//                        val group = toast.view as ViewGroup
+//                        val msgTextView = group.getChildAt(0) as TextView
+//                        msgTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP,13f)
+//                        toast.show()
+//                    }
+//                    else
+//                    {
+//
+//                    }
+//                }
+//
+//                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+//                }
+//
+//                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+//                }
+//            })
+
         }
 
         alertDialog.setView(view)

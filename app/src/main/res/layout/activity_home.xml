@@ -65,8 +65,8 @@
 
         <ImageView
             android:id="@+id/tip"
-            android:layout_width="79dp"
-            android:layout_height="135dp"
+            android:layout_width="72dp"
+            android:layout_height="120dp"
             android:layout_centerHorizontal="true"
             android:src="@drawable/tip" />
 

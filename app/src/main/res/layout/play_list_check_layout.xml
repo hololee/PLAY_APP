@@ -15,9 +15,9 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="25dp"
+        android:fontFamily="@font/system_font"
         android:gravity="start"
         android:text="놀이 이름"
-        android:fontFamily="@font/system_font"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -39,11 +39,11 @@
         android:id="@id/place"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
-        android:gravity="center_vertical"
         android:layout_marginStart="30dp"
         android:layout_marginTop="150dp"
-        android:text="장소"
         android:fontFamily="@font/system_font"
+        android:gravity="center_vertical"
+        android:text="장소"
         android:textColor="#ffffff"
         android:textSize="25sp" />
 
@@ -51,11 +51,11 @@
         android:id="@+id/place_info"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
-        android:layout_alignParentRight="true"
-        android:fontFamily="@font/system_font"
         android:layout_alignTop="@id/place"
+        android:layout_alignParentRight="true"
         android:layout_marginRight="30dp"
         android:background="#00ff0000"
+        android:fontFamily="@font/system_font"
         android:textColor="#BFBBBB"
         android:textSize="25sp" />
 
@@ -63,12 +63,12 @@
         android:id="@id/cost"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
-        android:gravity="center_vertical"
         android:layout_below="@id/place"
         android:layout_marginStart="30dp"
         android:layout_marginTop="28dp"
-        android:text="비용"
         android:fontFamily="@font/system_font"
+        android:gravity="center_vertical"
+        android:text="비용"
         android:textColor="#ffffff"
         android:textSize="25sp" />
 
@@ -77,11 +77,11 @@
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_below="@id/place_info"
-        android:layout_alignParentRight="true"
-        android:fontFamily="@font/system_font"
         android:layout_alignTop="@id/cost"
+        android:layout_alignParentRight="true"
         android:layout_marginRight="30dp"
         android:background="#00ff0000"
+        android:fontFamily="@font/system_font"
         android:textColor="#BFBBBB"
         android:textSize="25sp" />
 
@@ -92,9 +92,9 @@
         android:layout_below="@id/cost"
         android:layout_marginStart="30dp"
         android:layout_marginTop="28dp"
-        android:text="인원"
-        android:gravity="center_vertical"
         android:fontFamily="@font/system_font"
+        android:gravity="center_vertical"
+        android:text="인원"
         android:textColor="#ffffff"
         android:textSize="25sp" />
 
@@ -103,11 +103,11 @@
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_below="@id/cost_info"
-        android:layout_alignParentRight="true"
         android:layout_alignTop="@id/num"
-        android:fontFamily="@font/system_font"
+        android:layout_alignParentRight="true"
         android:layout_marginRight="30dp"
         android:background="#00ff0000"
+        android:fontFamily="@font/system_font"
         android:textColor="#BFBBBB"
         android:textSize="25sp" />
 
@@ -118,9 +118,9 @@
         android:layout_below="@id/num"
         android:layout_marginStart="30dp"
         android:layout_marginTop="28dp"
-        android:text="활동성"
-        android:gravity="center_vertical"
         android:fontFamily="@font/system_font"
+        android:gravity="center_vertical"
+        android:text="활동성"
         android:textColor="#ffffff"
         android:textSize="25sp" />
 
@@ -129,26 +129,32 @@
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_below="@id/num_info"
-        android:layout_alignParentRight="true"
         android:layout_alignTop="@id/act"
+        android:layout_alignParentRight="true"
         android:layout_marginRight="30dp"
-        android:fontFamily="@font/system_font"
         android:background="#00ff0000"
+        android:fontFamily="@font/system_font"
         android:textColor="#BFBBBB"
         android:textSize="25sp" />
 
-    <Button
-        android:id="@+id/modify_button"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/round_button"
-        android:text="수정"
-        android:fontFamily="@font/system_font"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp" />
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/modify_button"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/round_button"
+            android:fontFamily="@font/system_font"
+            android:text="수정"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp" />
+
+    </LinearLayout>
 
 </RelativeLayout>
 
