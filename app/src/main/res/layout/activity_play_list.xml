@@ -7,27 +7,40 @@
     android:background="@drawable/background_color"
     tools:context=".PlayListActivity">
 
-    <TextView
+    <RelativeLayout
         android:id="@+id/play_list_top"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/borderline_bottom"
-        android:gravity="center"
-        android:text="놀이 목록"
-        android:textStyle="bold"
-        android:fontFamily="@font/system_font"
-        android:textColor="#000000"
-        android:textSize="30sp" />
+        android:layout_height="wrap_content"
+        android:background="@color/darkBlue"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
 
-    <ImageButton
-        android:id="@+id/play_list_back_button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_margin="10dp"
-        android:adjustViewBounds="true"
-        android:background="#00ff0000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/back_arrow" />
+
+        <ImageButton
+            android:id="@+id/play_list_back_button"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/back_arrow_white" />
+
+        <TextView
+            android:id="@+id/play_list_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/system_font"
+            android:gravity="center"
+            android:text="놀이 목록"
+            android:textColor="@color/real_white"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/list_add"

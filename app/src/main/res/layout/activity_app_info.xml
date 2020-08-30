@@ -7,27 +7,41 @@
     android:background="@drawable/background_color"
     tools:context=".AppInfoActivity">
 
-    <TextView
+    <RelativeLayout
         android:id="@+id/top_tap"
-        android:layout_width="fill_parent"
-        android:layout_height="60dp"
-        android:gravity="center"
-        android:background="@drawable/borderline_bottom"
-        android:text="앱 정보"
-        android:textStyle="bold"
-        android:fontFamily="@font/system_font"
-        android:textColor="#000000"
-        android:textSize="30sp" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/darkBlue"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
 
-    <ImageButton
-        android:id="@+id/app_info_back_button"
-        android:background="#00ff0000"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:adjustViewBounds="true"
-        android:layout_margin="10dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/back_arrow" />
+
+        <ImageButton
+            android:id="@+id/app_info_back_button"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/back_arrow_white" />
+
+        <TextView
+            android:id="@+id/app_info_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/system_font"
+            android:gravity="center"
+            android:text="앱 정보"
+            android:textColor="@color/real_white"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/appinfo_main"
