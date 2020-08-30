@@ -25,6 +25,9 @@ class HomeActivity : AppCompatActivity() {
         lateinit var pref: PreferenceUtil
     }
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_home)
+
         pref = PreferenceUtil(applicationContext)
         pref.setBoolean("indoor",this,false)
         pref.setBoolean("outdoor",this,false)
@@ -34,8 +37,6 @@ class HomeActivity : AppCompatActivity() {
         pref.setBoolean("friend",this,false)
         pref.setBoolean("active",this,false)
         pref.setBoolean("inactive",this,false)
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
 
         setting.setOnClickListener {
             val intent = Intent(this,SettingsActivity::class.java)
@@ -43,6 +44,9 @@ class HomeActivity : AppCompatActivity() {
         }
 
         start_button.setOnClickListener{
+            start_button.isClickable = false
+            start_button.text = "LOADING"
+            start_button.textSize = 15F
             val mediaPlayer1 = MediaPlayer.create(this,R.raw.popup4)
             if(SettingsActivity.soundOn) mediaPlayer1.start()
             val roulette:ImageView = findViewById<ImageView>(R.id.roulette)
@@ -76,7 +80,13 @@ class HomeActivity : AppCompatActivity() {
                 val db:PlayDatabase ?= PlayDatabase.getInstance(this)
                 val result:Play? = db?.playDao()?.getResult(indoor,outdoor,free,pay,alone,friend,active,inactive)
                 if(result!=null) showResult(result)
-                else Toast.makeText(this,"조건에 해당하는 놀이가 없습니다.",Toast.LENGTH_SHORT).show()
+                else{
+                    Toast.makeText(this,"조건에 해당하는 놀이가 없습니다.",Toast.LENGTH_SHORT).show()
+                    start_button.isClickable = true
+                    start_button.text = "START"
+                    start_button.textSize = 20F
+                }
+
             },2500)
 
         }
@@ -99,6 +109,9 @@ class HomeActivity : AppCompatActivity() {
         val mediaPlayer2 = MediaPlayer.create(this,R.raw.popup1)
         if(SettingsActivity.soundOn) mediaPlayer2.start()
         close_button.setOnClickListener {
+            start_button.isClickable = true
+            start_button.text = "START"
+            start_button.textSize = 20F
             alertDialog.cancel()
         }
         alertDialog.setView(view)
