@@ -9,7 +9,6 @@ class SettingsActivity : AppCompatActivity() {
     companion object
     {
         lateinit var pref: PreferenceUtil
-        var soundOn:Boolean = true
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,11 +20,9 @@ class SettingsActivity : AppCompatActivity() {
             finish()
         }
 
-        soundOn = pref.getBoolean("sound",true)
-        switch_sound.isChecked = soundOn
+        switch_sound.isChecked = pref.getBoolean("sound",true)
         switch_sound.setOnClickListener{
-            soundOn = switch_sound.isChecked
-            pref.setBoolean("sound",this,soundOn)
+            pref.setBoolean("sound",this,switch_sound.isChecked)
         }
 
         app_info_button.setOnClickListener {
